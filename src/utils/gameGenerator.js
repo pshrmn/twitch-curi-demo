@@ -5,7 +5,15 @@ const starterNouns = [
   'Taste',
   'Sight',
   'Sound',
-  'Touch'
+  'Touch',
+  'Break',
+  'Spin',
+  'Dive',
+  'Call',
+  'Burn',
+  'Unite',
+  'Hope',
+  'Spirit'
 ];
 
 const prepositions = [
@@ -23,7 +31,13 @@ const endNouns = [
   'Freedom',
   'Victory',
   'Justice',
-  'Fun'
+  'Fun',
+  'Unity',
+  'Strength',
+  'Hope',
+  'Sky',
+  'Space',
+  'Jungle'
 ];
 
 export function game() {

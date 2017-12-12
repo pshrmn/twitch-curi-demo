@@ -23,5 +23,5 @@ export function weightedRandomNumberGenerator(weights) {
       }
     }
     return match.range[0] + rand(match.range[1]-match.range[0]);
-  }
+  };
 }

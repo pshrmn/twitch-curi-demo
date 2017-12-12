@@ -7,6 +7,7 @@ import { installCuri } from '@curi/vue';
 
 import routes from './routes';
 import App from './App';
+import './utils/streamState';
 
 const history = Browser();
 const config = createConfig(history, routes);

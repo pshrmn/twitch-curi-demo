@@ -28,7 +28,7 @@ const nouns = [
   'Cat',
   'Octopus',
   'Monkey',
-  'Gorilla',
+  'Gorilla'
 ];
 
 function randomAdjective() {
@@ -42,10 +42,10 @@ function streamName() {
 }
 
 const viewerWeights = weightedRandomNumberGenerator([
-  { w: 25, range: [0,100] },
-  { w: 35, range: [100,1000] },
-  { w: 35, range: [1000,10000] },
-  { w: 5, range: [10000,50000] }
+  { w: 25, range: [0, 100] },
+  { w: 35, range: [100, 1000] },
+  { w: 35, range: [1000, 10000] },
+  { w: 5, range: [10000, 50000] }
 ]);
 
 const followerCount = weightedRandomNumberGenerator([
