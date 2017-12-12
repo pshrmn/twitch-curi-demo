@@ -1,5 +1,5 @@
-import Home from './components/Home';
-import Browse from './components/Browse';
+import Home from './pages/Home';
+import Browse from './pages/Browse';
 
 export default [
   {
