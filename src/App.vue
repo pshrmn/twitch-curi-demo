@@ -1,28 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <TopBar />
+    <component :is="$curi.response.body" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import TopBar from './components/TopBar';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
-  },
+    TopBar
+  }
 };
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
