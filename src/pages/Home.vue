@@ -1,11 +1,14 @@
 <template>
-  <div>
-    <h1>Home page</h1>
-  </div>
+  <Featured :streamers="$curi.response.data.featured" />
 </template>
 
 <script>
+  import Featured from '../components/Featured';
+
   export default {
-    name: 'Home'
+    name: 'Home',
+    components: {
+      Featured
+    }
   };
 </script>

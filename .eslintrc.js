@@ -49,6 +49,7 @@ module.exports = {
     "no-plusplus": "off",
     "space-infix-ops": "off",
     "no-console": process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "space-before-function-paren": 0
   }
 }

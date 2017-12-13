@@ -1,13 +1,20 @@
 import Home from './pages/Home';
 import Browse from './pages/Browse';
+import API from './utils/streamState';
 
 export default [
   {
     name: 'Home',
     path: '',
     match: {
-      response({ set }) {
+      every() {
+        return Promise.resolve(
+          API.featuredStreamers(5)
+        );
+      },
+      response({ resolved, set }) {
         set.body(Home);
+        set.data({ featured: resolved.every });
       }
     }
   },
