@@ -29,10 +29,13 @@
   .fake-video {
     width: 600px;
     height: 350px;
-    background: orange;
+    background: #8a2b33;
   }
   .info {
     color: #efefef;
     padding: 0 15px;
+  }
+  a {
+    color: #ff6868
   }
 </style>

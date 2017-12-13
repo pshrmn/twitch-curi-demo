@@ -1,11 +1,11 @@
 <template>
   <div :class="{ 'left-sidebar': true, hidden }">
     <div class='toggle' v-on:click="hidden = !hidden">
-      {{hidden ? '>' : '<'}}
+      {{hidden ? '&rarr;' : '&larr;'}}
     </div>
     <div class='content'>
       <div class='featured'>
-        <h2>Featured Streamers</h2>
+        <h4>Featured Streamers</h4>
         <div
           v-for="streamer in featured"
           :key="streamer.username"
@@ -35,12 +35,13 @@
 
 <style scoped>
   .left-sidebar {
-    background: orangered;
+    background: #222233;
     max-width: 200px;
     height: calc(100vh - 50px);
     position: relative;
     margin-right: 25px;
-    color: #fff;
+    color: #ff6868;
+    box-sizing: border-box;
   }
 
   .left-sidebar.hidden {
@@ -55,9 +56,12 @@
     position: absolute;
     right: -25px;
     width: 25px;
-    height: 25px;
-    background: #222233;
+    height: 35px;
+    background: #efefef;
+    color: #e13333;
     font-size: 20px;
+    line-height: 1.5em;
+    cursor: pointer;
   }
 
   a {

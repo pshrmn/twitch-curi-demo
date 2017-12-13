@@ -60,7 +60,7 @@
   }
 
   .active {
-    border-color: orange;
+    border-color: #e13333;
   }
 
   .viewers {
