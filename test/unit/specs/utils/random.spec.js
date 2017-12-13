@@ -16,7 +16,7 @@ describe('weightedRandomNumberGenerator', () => {
 
   it('returns random numbers with approximately expected frequency', () => {
     let buckets = [0, 0, 0];
-    let delta = 0.2;
+    let delta = 0.3;
     function withinDelta(expected, actual, delta) {
       return (expected-delta) < actual && actual < (expected + delta)
     }
