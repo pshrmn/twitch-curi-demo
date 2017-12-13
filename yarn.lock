@@ -9,6 +9,12 @@
     "@hickory/root" "^1.0.0-beta.6"
     path-to-regexp "^2.1.0"
 
+"@curi/side-effect-title@^1.0.0-beta.8":
+  version "1.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@curi/side-effect-title/-/side-effect-title-1.0.0-beta.8.tgz#0099745de7c8e773639be9d0cab406cca2157f76"
+  dependencies:
+    "@curi/core" "^1.0.0-beta.22"
+
 "@curi/vue@^1.0.0-beta.10":
   version "1.0.0-beta.10"
   resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.10.tgz#301f889631a1f2e869c9bbca0b17ac43c372bb4d"

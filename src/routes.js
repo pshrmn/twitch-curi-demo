@@ -18,6 +18,7 @@ export default [
       response({ resolved, set }) {
         set.body(Home);
         set.data({ featured: resolved.every });
+        set.title('Home');
       }
     }
   },
@@ -31,6 +32,7 @@ export default [
       response({ resolved, set }) {
         set.body(Browse);
         set.data({ games: resolved.every });
+        set.title('Browsing Games');
       }
     },
     children: [
@@ -40,6 +42,7 @@ export default [
         match: {
           response({ set }) {
             set.body(Popular);
+            set.tiel('Browsing Popular Streams');
           }
         }
       },
@@ -54,9 +57,10 @@ export default [
               return Promise.reject('Game not found');
             }
           },
-          response({ resolved, set }) {
+          response({ route, resolved, set }) {
             set.body(Game);
             set.data({ streamers: resolved.every });
+            set.title(`Browsing ${route.params.game}`);
           }
         }
       }
