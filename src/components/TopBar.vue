@@ -20,11 +20,11 @@
     width: 100vw;
     text-align: left;
   }
-  a {
+  .topbar a {
     color: #fff;
     text-decoration: none;
   }
-  a.home {
+  .topbar a.home {
     font-size: 2em;
   }
 </style>

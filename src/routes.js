@@ -1,5 +1,8 @@
 import Home from './pages/Home';
 import Browse from './pages/Browse';
+import Popular from './pages/Popular';
+import Game from './pages/Game';
+
 import API from './utils/streamState';
 
 export default [
@@ -20,11 +23,43 @@ export default [
   },
   {
     name: 'Browse',
-    path: 'browse',
+    path: 'directory',
     match: {
-      response({ set }) {
+      every() {
+        return API.topGames();
+      },
+      response({ resolved, set }) {
         set.body(Browse);
+        set.data({ games: resolved.every });
       }
-    }
+    },
+    children: [
+      {
+        name: 'Browse Popular',
+        path: 'all',
+        match: {
+          response({ set }) {
+            set.body(Popular);
+          }
+        }
+      },
+      {
+        name: 'Game',
+        path: 'game/:game',
+        match: {
+          every({ params }) {
+            try {
+              return API.streamersPlaying(params.game);
+            } catch (e) {
+              return Promise.reject('Game not found');
+            }
+          },
+          response({ resolved, set }) {
+            set.body(Game);
+            set.data({ streamers: resolved.every });
+          }
+        }
+      }
+    ]
   }
 ];

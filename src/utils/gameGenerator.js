@@ -5,7 +5,7 @@ const starterNouns = [
   'Taste',
   'Sight',
   'Sound',
-  'Touch',
+  'Feeling',
   'Break',
   'Spin',
   'Dive',

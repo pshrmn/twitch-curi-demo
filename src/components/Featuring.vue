@@ -2,7 +2,14 @@
   <div class='featuring'>
     <div class='fake-video'></div>
     <div class='info'>
-      {{streamer.username}} is playing {{streamer.playing.name}}
+      <h2>
+        {{streamer.username}}
+      </h2>
+      <h3>
+        Playing <curi-link to='Game' :params='{ game: streamer.playing.name }'>
+          {{streamer.playing.name}}
+        </curi-link>
+      </h3>
     </div>
   </div>
 </template>
