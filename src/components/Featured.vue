@@ -36,7 +36,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .featured {
     width: 60vw;
     margin: 25px auto 0;

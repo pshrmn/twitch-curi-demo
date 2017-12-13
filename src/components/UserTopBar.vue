@@ -22,7 +22,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .user-topbar {
     display: flex;
     flex-flow: row nowrap;

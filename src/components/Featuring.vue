@@ -21,7 +21,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .featuring {
     display: flex;
     margin-bottom: 10px;

@@ -13,7 +13,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .topbar {
     background: #222233;
     height: 50px;
