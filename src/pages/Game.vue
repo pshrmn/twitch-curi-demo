@@ -5,7 +5,9 @@
       v-for="streamer in $curi.response.data.streamers"
       :key="streamer.username"
     >
-      {{streamer.username}} - {{streamer.watching}}
+      <curi-link to='Stream' :params="{ username: streamer.username}">
+        {{streamer.username}}
+      </curi-link> - {{streamer.watching}}
     </div>
   </div>
 </template>

@@ -24,6 +24,7 @@ const emptyFilter = n => n;
 const mostWatchers = (a, b) => b.watching - a.watching;
 
 const API = {
+  /* games */
   games(filter, sort) {
     const filtered = GAMES.filter(filter);
     if (sort) {
@@ -36,6 +37,10 @@ const API = {
       emptyFilter,
       mostWatchers
     ).slice(0, count);
+  },
+  /* streamers */
+  streamer(username) {
+    return STREAMERS.find(u => u.username === username);
   },
   streamers(filter = emptyFilter, sort) {
     const filtered = STREAMERS.filter(filter);
