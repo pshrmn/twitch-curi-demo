@@ -24,6 +24,14 @@ export default {
 </script>
 
 <style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
 }
@@ -33,7 +41,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  box-sizing: border-box;
 }
 
 h1, h2, h3 {

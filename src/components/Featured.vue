@@ -42,7 +42,6 @@
     margin: 25px auto 0;
     background: #222233;
     padding: 10px;
-    box-sizing: border-box;
   }
   .carousel {
     display: flex;

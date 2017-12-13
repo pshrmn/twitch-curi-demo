@@ -51,7 +51,6 @@
     position: absolute;
     bottom: 15px;
     width: 100%;
-    box-sizing: border-box;
     padding: 0 5px;
     color: #fff;
   }

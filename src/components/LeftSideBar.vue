@@ -41,7 +41,6 @@
     position: relative;
     margin-right: 25px;
     color: #ff6868;
-    box-sizing: border-box;
   }
 
   .left-sidebar.hidden {
