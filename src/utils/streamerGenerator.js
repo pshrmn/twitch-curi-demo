@@ -13,7 +13,13 @@ const adjectives = [
   'Green',
   'Blue',
   'Indigo',
-  'Violet'
+  'Violet',
+  'Ace',
+  'Top',
+  'Super',
+  'Evil',
+  'Giant',
+  'Tiny'
 ];
 
 const nouns = [
@@ -28,7 +34,9 @@ const nouns = [
   'Cat',
   'Octopus',
   'Monkey',
-  'Gorilla'
+  'Gorilla',
+  'Captain',
+  'Noob'
 ];
 
 function randomAdjective() {
@@ -36,9 +44,9 @@ function randomAdjective() {
 }
 
 function streamName() {
-  const adj = randomAdjective() + randomAdjective();
+  const adj = randomAdjective();
   const noun = nouns[rand(nouns.length)];
-  return `${adj}${noun}`;
+  return `${adj}${noun}${Math.random() > 0.75 ? rand(10000) : ''}`;
 }
 
 const viewerWeights = weightedRandomNumberGenerator([
