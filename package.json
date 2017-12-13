@@ -17,6 +17,9 @@
     "@curi/core": "^1.0.0-beta.22",
     "@curi/side-effect-title": "^1.0.0-beta.8",
     "@curi/vue": "^1.0.0-beta.10",
+    "@fortawesome/fontawesome": "^1.0.1",
+    "@fortawesome/fontawesome-free-solid": "^5.0.1",
+    "@fortawesome/vue-fontawesome": "^0.0.21",
     "@hickory/browser": "^1.0.0-beta.5",
     "vue": "^2.5.2"
   },

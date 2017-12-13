@@ -59,5 +59,6 @@
     color: #fff;
     border: 0;
     padding: 5px 10px;
+    margin-right: 10px;
   }
 </style>

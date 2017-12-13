@@ -24,6 +24,18 @@
     "@types/warning" "^3.0.0"
     warning "^3.0.0"
 
+"@fortawesome/fontawesome-free-solid@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free-solid/-/fontawesome-free-solid-5.0.1.tgz#1a635b065268ca0b80ee7cc4073f10b7fec0012f"
+
+"@fortawesome/fontawesome@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome/-/fontawesome-1.0.1.tgz#8ac60e1e7b437889baf9c9d6e3a61ef3b637170d"
+
+"@fortawesome/vue-fontawesome@^0.0.21":
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.0.21.tgz#8144b314f40830ff1eaa78806f0ae83f0041cd6e"
+
 "@hickory/browser@^1.0.0-beta.5":
   version "1.0.0-beta.5"
   resolved "https://registry.yarnpkg.com/@hickory/browser/-/browser-1.0.0-beta.5.tgz#ae4e0c268787672a5fba9fdda94c5fc5f54246c2"
