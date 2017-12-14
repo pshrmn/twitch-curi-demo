@@ -2,11 +2,11 @@ import { word, sentence, paragraphs } from '@/utils/loremIpsum';
 
 describe('loremIpsum', () => {
   describe('word', () => {
-    it('returns a string between 1 and 6 characters long', () => {
+    it('returns a non-empty string', () => {
       for (let i=0; i<100; i++) {
         const w = word();
-        expect(w.length).toBeGreaterThanOrEqual(1);
-        expect(w.length).toBeLessThanOrEqual(6);
+        expect(typeof w).toBe('string');
+        expect(w).not.toBe('');
       }
     });
   });

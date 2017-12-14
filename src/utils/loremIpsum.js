@@ -1,12 +1,12 @@
 import { rand } from './random';
 
-const syllables = ['org', 'orp', 'urg', 'urm', 'g', 'gl', 'ro', 'th', 'imf', 'oo', 'ou', 'oi', 'fa', 'bao'];
+const syllables = ['org', 'orp', 'urg', 'urm', 'ge', 'gli', 'ro', 'thy', 'imf', 'oo', 'ou', 'oi', 'fa', 'bao'];
 
 export function word() {
-  const count = Math.floor(Math.random() * 3);
+  const count = Math.ceil(Math.random() * 3);
   let w = '';
   for (let i=0; i<count; i++) {
-    w += syllables[rand(syllables.length)];
+    w += syllables[rand(syllables.length-1)];
   }
   return w;
 }
