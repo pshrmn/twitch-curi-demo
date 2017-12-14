@@ -16,6 +16,9 @@ export default function() {
     start() {
       randomTimeout(() => {
         chatLines.push({ username: 'Hal', text: sentence(), key: chatLines.length });
+        if (chatLines.length > 50) {
+          chatLines.shift();
+        }
       });
     },
     stop() {
