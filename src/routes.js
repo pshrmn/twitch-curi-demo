@@ -12,13 +12,17 @@ export default [
     path: '',
     match: {
       every() {
-        return Promise.resolve(
-          API.featuredStreams(5)
-        );
+        return Promise.all([
+          API.featuredStreams(5),
+          API.topGames(10)
+        ]);
       },
       response({ resolved, set }) {
         set.body(Home);
-        set.data({ featured: resolved.every });
+        set.data({
+          featured: resolved.every[0],
+          games: resolved.every[1]
+        });
         set.title('Home');
       }
     }

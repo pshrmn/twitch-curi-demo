@@ -38,8 +38,6 @@
 
 <style scoped>
   .featured {
-    width: 60vw;
-    margin: 25px auto 0;
     background: #222233;
     padding: 10px;
   }
