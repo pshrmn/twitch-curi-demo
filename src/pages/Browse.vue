@@ -12,8 +12,7 @@
             <Thumbnail
               width='150'
               height='200'
-              :primary='game.colors.primary'
-              :secondary='game.colors.secondary'
+              v-bind="game.colors"
             />
           </curi-link>
         </div>

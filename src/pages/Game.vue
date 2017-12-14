@@ -12,8 +12,7 @@
             <Thumbnail
               width='150'
               height='200'
-              :primary='streamer.colors.primary'
-              :secondary='streamer.colors.secondary'
+              v-bind="streamer.colors"
             />
           </curi-link>
         </div>

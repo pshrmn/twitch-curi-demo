@@ -17,8 +17,7 @@
         <Thumbnail
           width='30'
           height='50'
-          :primary='game.colors.primary'
-          :secondary='game.colors.secondary'
+          v-bind="game.colors"
         />
         <div>
           <div class='stream-title'>{{stream.title}}</div>
