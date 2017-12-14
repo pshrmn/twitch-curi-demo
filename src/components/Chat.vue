@@ -16,27 +16,12 @@
 </template>
 
 <script>
-  function debounce(fn) {
-    let timeout;
-    let mostRecentArgs;
-    return (...args) => {
-      mostRecentArgs = args;
-      if (!timeout) {
-        fn(...mostRecentArgs);
-        timeout = setTimeout(() => {
-          timeout = null;
-        }, 250);
-      }
-    };
-  }
-
   export default {
     name: 'Chat',
     props: ['stream'],
     data() {
       return {
-        hidden: false,
-        forceScrolling: true
+        hidden: false
       };
     },
     watch: {
@@ -44,26 +29,24 @@
         if (newStream !== oldStream) {
           oldStream.chat.stop();
           newStream.chat.start();
-          this.forceScrolling = true;
           this.hidden = false;
         }
       }
     },
     mounted() {
       this.stream.chat.start();
-      // when the user scrolls, turn off auto-scroll
-      // when they scroll to the bottom of the element,
-      // turn auto-scroll back on
-      this.$refs.lines.addEventListener('scroll', debounce(() => {
-        const lines = this.$refs.lines;
-        const height = lines.scrollTop + lines.clientHeight;
-        const bottom = lines.scrollHeight;
-
-        this.forceScrolling = height/bottom > 0.95;
-      }), false);
     },
     updated() {
-      if (this.forceScrolling) {
+      const lines = this.$refs.lines;
+      const height = lines.scrollTop + lines.clientHeight;
+      const bottom = lines.scrollHeight;
+      // This threshold might need to be tweaked. The first
+      // message that extends beyond the natural height, if
+      // significantly long, will break this. Another check
+      // here may be useful to prevent this, but I'm not
+      // bothering with it for the time being.
+      const nearBottom = height/bottom > 0.9;
+      if (nearBottom) {
         this.$refs.lines.scrollTop = this.$refs.lines.scrollHeight;
       }
     },
