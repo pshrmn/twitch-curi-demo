@@ -23,7 +23,7 @@
 
 <style scoped>
   .contents {
-    width: 60vw;
+    width: 75vw;
     max-width: 900px;
     margin: 25px auto 0;
   }

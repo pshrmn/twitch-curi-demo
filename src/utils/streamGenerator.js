@@ -20,7 +20,7 @@ const streamTitle = () => {
 };
 
 export const stream = () => ({
-  ...user(),
+  ...user(true),
   watching: viewerWeights(),
   title: streamTitle(),
   chat: createChat()

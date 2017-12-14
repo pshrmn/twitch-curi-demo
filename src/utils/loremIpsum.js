@@ -37,8 +37,8 @@ export function sentence() {
 }
 
 function randomParagraph() {
-  const delta = Math.floor(Math.random() * 5);
-  const count = 5 + delta;
+  const delta = Math.floor(Math.random() * 2);
+  const count = 3 + delta;
   const sentences = [];
   for (let s=0; s<count; s++) {
     sentences.push(sentence());
