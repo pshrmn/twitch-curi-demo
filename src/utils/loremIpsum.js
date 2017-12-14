@@ -1,8 +1,7 @@
 import { rand, weighted } from './random';
 
-const words = [];
 // favor vowels over consonants
-const letters = 'ooooouuuiiiwrysglcvbnmqpf';
+const letters = 'ooooouuuuuiiiiwrysglcvbnmqpf';
 
 const wordLength = weighted([
   { w: 1, length: 1 },
@@ -10,7 +9,7 @@ const wordLength = weighted([
   { w: 4, length: 3 },
   { w: 5, length: 4 },
   { w: 5, length: 5 },
-  { w: 3, length: 6 },
+  { w: 3, length: 6 }
 ]);
 
 function randomLetter() {
@@ -18,12 +17,12 @@ function randomLetter() {
 }
 
 export function word() {
-  let word = '';
+  let w = '';
   const len = wordLength().length;
   for (let i=0; i<len; i++) {
-    word += randomLetter();
+    w += randomLetter();
   }
-  return word;
+  return w;
 }
 
 export function sentence() {
@@ -33,8 +32,8 @@ export function sentence() {
   for (let w=0; w<wordCount; w++) {
     words.push(word());
   }
-  let sentence = words.join(' ') + '.';
-  return sentence.charAt(0).toUpperCase() + sentence.slice(1);
+  const s = `${words.join(' ')}.`;
+  return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
 function randomParagraph() {
@@ -47,9 +46,9 @@ function randomParagraph() {
   return sentences.join(' ');
 }
 
-export function paragraphs(paragraphs = 1) {
+export function paragraphs(count = 1) {
   const p = [];
-  for (let i=0; i<paragraphs; i++) {
+  for (let i=0; i<count; i++) {
     p.push(randomParagraph());
   }
   return p.join('\n');

@@ -5,7 +5,7 @@
   <div v-else>
     <UserTopBar :user="$curi.response.data.user" />
     <div class='content'>
-      <VideoPlayer />
+      <VideoPlayer :stream="$curi.response.data.user"/>
     </div>
   </div>
 </template>

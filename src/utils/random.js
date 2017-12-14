@@ -31,5 +31,5 @@ export function weightedRandomNumberGenerator(weights) {
   return () => {
     const match = fn();
     return match.range[0] + rand(match.range[1]-match.range[0]);
-  }
+  };
 }

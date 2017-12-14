@@ -1,8 +1,8 @@
-import { streamer } from '@/utils/streamerGenerator'
+import { stream } from '@/utils/streamGenerator'
 
-describe('streamer generator', () => {
+describe('stream generator', () => {
   it('returns an object with the expected format', () => {
-    const s = streamer();
+    const s = stream();
     expect(s).toMatchObject(
       expect.objectContaining({
         username: expect.any(String),

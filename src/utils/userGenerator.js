@@ -49,13 +49,6 @@ function streamName() {
   return `${adj}${noun}${Math.random() > 0.75 ? rand(10000) : ''}`;
 }
 
-const viewerWeights = weightedRandomNumberGenerator([
-  { w: 25, range: [0, 100] },
-  { w: 35, range: [100, 1000] },
-  { w: 35, range: [1000, 10000] },
-  { w: 5, range: [10000, 50000] }
-]);
-
 const followerCount = weightedRandomNumberGenerator([
   { w: 15, range: [0, 1000] },
   { w: 25, range: [1000, 25000] },
@@ -64,9 +57,8 @@ const followerCount = weightedRandomNumberGenerator([
   { w: 15, range: [500000, 2500000] }
 ]);
 
-export const streamer = () => ({
+export const user = (isStreamer = false) => ({
   username: streamName(),
-  watching: viewerWeights(),
-  followers: followerCount()
+  followers: isStreamer ? followerCount() : Math.floor(Math.random()*25)
 });
 

@@ -13,7 +13,7 @@ export default [
     match: {
       every() {
         return Promise.resolve(
-          API.featuredStreamers(5)
+          API.featuredStreams(5)
         );
       },
       response({ resolved, set }) {

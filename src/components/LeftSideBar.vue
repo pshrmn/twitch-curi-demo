@@ -26,7 +26,7 @@
     name: 'LeftSideBar',
     data() {
       return {
-        featured: API.featuredStreamers(5),
+        featured: API.featuredStreams(5),
         hidden: false
       };
     }

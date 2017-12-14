@@ -1,6 +1,6 @@
 import { rand } from './random';
 import { game } from './gameGenerator';
-import { streamer } from './streamerGenerator';
+import { stream } from './streamGenerator';
 
 const GAMES = [];
 for (let g = 0; g < 20; g++) {
@@ -10,10 +10,10 @@ for (let g = 0; g < 20; g++) {
   });
 }
 
-const STREAMERS = [];
+const STREAMS = [];
 for (let g=0; g<100; g++) {
-  const s = streamer();
-  STREAMERS.push(s);
+  const s = stream();
+  STREAMS.push(s);
 
   const playing = GAMES[rand(GAMES.length)];
   s.playing = playing;
@@ -40,29 +40,29 @@ const API = {
   },
   /* streamers */
   streamer(username) {
-    return STREAMERS.find(u => u.username === username);
+    return STREAMS.find(u => u.username === username);
   },
-  streamers(filter = emptyFilter, sort) {
-    const filtered = STREAMERS.filter(filter);
+  streams(filter = emptyFilter, sort) {
+    const filtered = STREAMS.filter(filter);
     if (sort) {
       filtered.sort(sort);
     }
     return filtered;
   },
-  topStreamers(count) {
-    return this.streamers(
+  topStream(count) {
+    return this.streams(
       emptyFilter,
       mostWatchers
     ).slice(0, count);
   },
-  featuredStreamers(count) {
-    return this.streamers(
+  featuredStreams(count) {
+    return this.streams(
       emptyFilter,
       () => (Math.random() > 0.5 ? 1 : -1)
     ).slice(0, count);
   },
   streamersPlaying(name) {
-    return this.streamers(
+    return this.streams(
       s => s.playing.name === name,
       mostWatchers
     );
