@@ -2,12 +2,10 @@ import { rand } from './random';
 import { game } from './gameGenerator';
 import { stream } from './streamGenerator';
 
+/* setup */
 const GAMES = [];
 for (let g = 0; g < 20; g++) {
-  GAMES.push({
-    name: game(),
-    watching: 0
-  });
+  GAMES.push(game());
 }
 
 const STREAMS = [];
@@ -19,11 +17,12 @@ for (let g=0; g<100; g++) {
   s.playing = playing;
   playing.watching += s.watching;
 }
+/* end setup */
 
 const emptyFilter = n => n;
 const mostWatchers = (a, b) => b.watching - a.watching;
 
-const API = {
+export default {
   /* games */
   games(filter, sort) {
     const filtered = GAMES.filter(filter);
@@ -68,5 +67,3 @@ const API = {
     );
   }
 };
-
-export default API;

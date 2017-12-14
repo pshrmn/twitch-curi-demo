@@ -1,4 +1,6 @@
 import { rand, weightedRandomNumberGenerator } from './random';
+import { paragraphs } from './loremIpsum';
+import colors from './colorGenerator';
 
 const adjectives = [
   'Cool',
@@ -59,6 +61,10 @@ const followerCount = weightedRandomNumberGenerator([
 
 export const user = (isStreamer = false) => ({
   username: streamName(),
-  followers: isStreamer ? followerCount() : Math.floor(Math.random()*25)
+  followers: isStreamer
+    ? followerCount()
+    : Math.floor(Math.random()*25),
+  description: isStreamer ? paragraphs(1) : '',
+  colors: colors()
 });
 

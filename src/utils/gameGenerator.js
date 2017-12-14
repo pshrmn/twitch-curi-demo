@@ -1,4 +1,5 @@
 import { rand } from './random';
+import colors from './colorGenerator';
 
 const starterNouns = [
   'Smell',
@@ -41,9 +42,14 @@ const endNouns = [
 ];
 
 export function game() {
-  return [
+  const name = [
     starterNouns[rand(starterNouns.length)],
     prepositions[rand(prepositions.length)],
     endNouns[rand(endNouns.length)]
   ].join(' ');
+  return {
+    name,
+    watching: 0,
+    colors: colors()
+  };
 }
