@@ -14,12 +14,17 @@
     </div>
     <div class='info'>
       <div class='stream-info'>
-        <Thumbnail width='30' height='50' primary='red' secondary='orange' />
+        <Thumbnail
+          width='30'
+          height='50'
+          :primary='game.colors.primary'
+          :secondary='game.colors.secondary'
+        />
         <div>
           <div class='stream-title'>{{stream.title}}</div>
           <div>
-            <curi-link to='Game' :params="{ game: stream.playing.name }">
-              {{stream.playing.name}}
+            <curi-link to='Game' :params="{ game: game.name }">
+              {{game.name}}
             </curi-link>
           </div>
         </div>
@@ -47,6 +52,10 @@
     name: 'VideoPlayer',
     props: ['stream'],
     computed: {
+      game() {
+        return this.stream.playing;
+      },
+      // icons
       play: () => faPlay,
       volume: () => faVolumeUp,
       expand: () => faExpand,
