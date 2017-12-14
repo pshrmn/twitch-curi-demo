@@ -47,6 +47,7 @@
     flex-flow: row nowrap;
     margin-bottom: 10px;
   }
+
   .fake-video {
     width: 600px;
     height: 350px;
@@ -78,5 +79,16 @@
 
   a {
     color: #ff6868
+  }
+
+  @media screen and (max-width: 1080px) {
+    .featuring {
+      flex-flow: column nowrap;
+    }
+
+    .fake-video {
+      width: 100%;
+      margin-bottom: 5px;
+    }
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class='featured'>
     <Featuring :streamer='activeFeatured' />
-    <div class='carousel'>
+    <Carousel>
       <div
         v-for="(streamer, index) in streamers"
         :key="streamer.username"
@@ -10,12 +10,13 @@
       >
         <div class='viewers'>{{streamer.watching}}</div>
       </div>
-    </div>
+    </Carousel>
   </div>
 </template>
 
 <script>
   import Featuring from './Featuring';
+  import Carousel from './Carousel';
 
   export default {
     name: 'Featured',
@@ -31,7 +32,8 @@
       }
     },
     components: {
-      Featuring
+      Featuring,
+      Carousel
     }
   };
 </script>
@@ -41,15 +43,11 @@
     background: #222233;
     padding: 10px;
   }
-  .carousel {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-  }
 
   .featured-thumbnail {
     width: 135px;
     height: 75px;
+    flex-shrink: 0;
     background: #ccc;
     margin: 0 10px 0 0;
     position: relative;

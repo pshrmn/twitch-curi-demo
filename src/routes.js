@@ -13,7 +13,7 @@ export default [
     match: {
       every() {
         return Promise.all([
-          API.featuredStreams(5),
+          API.featuredStreams(10),
           API.topGames(10)
         ]);
       },
