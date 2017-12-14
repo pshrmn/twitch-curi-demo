@@ -1,26 +1,12 @@
-import { rand, weighted } from './random';
+import { rand } from './random';
 
-// favor vowels over consonants
-const letters = 'ooooouuuuuiiiiwrysglcvbnmqpf';
-
-const wordLength = weighted([
-  { w: 1, length: 1 },
-  { w: 3, length: 2 },
-  { w: 4, length: 3 },
-  { w: 5, length: 4 },
-  { w: 5, length: 5 },
-  { w: 3, length: 6 }
-]);
-
-function randomLetter() {
-  return letters.charAt(rand(letters.length));
-}
+const syllables = ['org', 'orp', 'urg', 'urm', 'g', 'gl', 'ro', 'th', 'imf', 'oo', 'ou', 'oi', 'fa', 'bao'];
 
 export function word() {
+  const count = Math.floor(Math.random() * 3);
   let w = '';
-  const len = wordLength().length;
-  for (let i=0; i<len; i++) {
-    w += randomLetter();
+  for (let i=0; i<count; i++) {
+    w += syllables[rand(syllables.length)];
   }
   return w;
 }
