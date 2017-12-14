@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class='viewer-info'>
-        <div class='watching'><font-awesome-icon :icon="user" /> {{stream.watching}}</div>
+        <Watching :count="stream.watching" />
       </div>
     </div>
   </div>
@@ -41,11 +41,11 @@
     faPlay,
     faVolumeUp,
     faExpand,
-    faCog,
-    faUser
+    faCog
   } from '@fortawesome/fontawesome-free-solid';
 
   import Thumbnail from './Thumbnail';
+  import Watching from './Watching';
 
   export default {
     name: 'VideoPlayer',
@@ -58,12 +58,12 @@
       play: () => faPlay,
       volume: () => faVolumeUp,
       expand: () => faExpand,
-      cog: () => faCog,
-      user: () => faUser
+      cog: () => faCog
     },
     components: {
       Thumbnail,
-      FontAwesomeIcon
+      FontAwesomeIcon,
+      Watching
     }
   };
 </script>
@@ -113,9 +113,5 @@
 
   .thumbnail {
     margin-right: 10px;
-  }
-
-  .watching {
-    color: #e13333;
   }
 </style>

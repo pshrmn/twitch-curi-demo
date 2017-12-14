@@ -17,10 +17,10 @@
           </curi-link>
         </div>
         <div>
-          <curi-link to='Stream' :params="{ username: streamer.username}">
+          <curi-link class='title' to='Stream' :params="{ username: streamer.username}">
             {{streamer.username}}
           </curi-link>
-          <p>{{streamer.watching}}</p>
+          <p>{{fmt(streamer.watching)}} Viewers</p>
         </div>
       </div>
     </div>
@@ -29,11 +29,15 @@
 
 <script>
   import Thumbnail from '../components/Thumbnail';
+  import fmt from '../utils/numberFormat';
 
   export default {
     name: 'Game',
     components: {
       Thumbnail
+    },
+    methods: {
+      fmt
     }
   };
 </script>
@@ -46,5 +50,15 @@
   .stream {
     width: 150px;
     margin: 0 10px 10px 0;
+  }
+
+  a.title {
+    color: #2c3e50;
+    text-decoration: none;
+  }
+
+  p {
+    color: #999;
+    font-size: 0.9em;
   }
 </style>

@@ -17,10 +17,10 @@
           </curi-link>
         </div>
         <div>
-          <curi-link to='Game' :params="{ game: game.name }">
+          <curi-link class='title' to='Game' :params="{ game: game.name }">
             {{game.name}}
           </curi-link>
-          <p>{{game.watching}}</p>
+          <p>{{fmt(game.watching)}} Viewers</p>
         </div>
       </div>
     </div>
@@ -29,11 +29,15 @@
 
 <script>
   import Thumbnail from '../components/Thumbnail';
+  import fmt from '../utils/numberFormat';
 
   export default {
     name: 'Browse',
     components: {
       Thumbnail
+    },
+    methods: {
+      fmt
     }
   };
 </script>
@@ -46,5 +50,19 @@
   .game {
     width: 150px;
     margin: 0 10px 10px 0;
+  }
+
+  a.title {
+    color: #2c3e50;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  p {
+    color: #999;
+    font-size: 0.9em;
   }
 </style>
