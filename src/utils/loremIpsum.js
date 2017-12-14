@@ -26,8 +26,8 @@ export function word() {
 }
 
 export function sentence() {
-  const delta = Math.floor(Math.random() * 50);
-  const wordCount = 100 + delta;
+  const delta = Math.floor(Math.random() * 10);
+  const wordCount = 15 + delta;
   const words = [];
   for (let w=0; w<wordCount; w++) {
     words.push(word());

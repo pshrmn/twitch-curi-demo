@@ -1,6 +1,7 @@
 import { weightedRandomNumberGenerator } from './random';
 import { word } from './loremIpsum';
 import { user } from './userGenerator';
+import createChat from './chatGenerator';
 
 const viewerWeights = weightedRandomNumberGenerator([
   { w: 25, range: [0, 100] },
@@ -21,6 +22,7 @@ const streamTitle = () => {
 export const stream = () => ({
   ...user(),
   watching: viewerWeights(),
-  title: streamTitle()
+  title: streamTitle(),
+  chat: createChat()
 });
 

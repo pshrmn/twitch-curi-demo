@@ -24,6 +24,7 @@
 <style scoped>
   .contents {
     width: 60vw;
+    max-width: 900px;
     margin: 25px auto 0;
   }
 

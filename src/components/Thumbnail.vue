@@ -18,7 +18,7 @@
   };
 </script>
 
-<style>
+<style scoped>
   .thumbnail {
     display: inline-block;
     color: #ccc;
