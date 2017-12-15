@@ -2,7 +2,6 @@ import { sentence } from './loremIpsum';
 
 
 export default function() {
-  let chatLines = [];
   let timeout;
   function randomTimeout(fn) {
     fn();
@@ -12,18 +11,19 @@ export default function() {
   }
   let id = 0;
   return {
-    chatLines,
+    chatLines: [],
     start() {
       randomTimeout(() => {
-        chatLines.push({ username: 'Hal', text: sentence(), key: id++ });
-        if (chatLines.length > 50) {
-          chatLines.shift();
+        this.chatLines.push({ username: 'Hal', text: sentence(), key: id++ });
+        if (this.chatLines.length > 50) {
+          this.chatLines.shift();
         }
       });
     },
     stop() {
+      console.log('STOPPING');
+      this.chatLines = [];
       clearTimeout(timeout);
-      chatLines = [];
     }
   };
 }
