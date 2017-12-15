@@ -67,6 +67,10 @@
     width: 0px;
   }
 
+  .hidden .lines {
+    display: none;
+  }
+
   .lines {
     width: 300px;
     border-left: 1px solid #222233;
