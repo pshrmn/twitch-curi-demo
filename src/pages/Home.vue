@@ -1,6 +1,6 @@
 <template>
   <div class='contents'>
-    <Featured :streamers="$curi.response.data.featured" />
+    <Featured :streams="$curi.response.data.featured" />
     <div class='featured-games'>
       <h2>Featured Games</h2>
       <GamesList :games="$curi.response.data.games" />  

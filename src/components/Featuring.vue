@@ -6,22 +6,22 @@
         <Thumbnail
           width='50'
           height='50'
-          v-bind='streamer.colors'
+          v-bind='stream.colors'
         />
         <div>
           <h2>
-            {{streamer.username}}
+            {{stream.username}}
           </h2>
           <h3>
-            Playing <curi-link to='Game' :params='{ game: streamer.playing.name }'>
-              {{streamer.playing.name}}
+            Playing <curi-link to='Game' :params='{ game: stream.playing.name }'>
+              {{stream.playing.name}}
             </curi-link>
           </h3>
         </div>
       </div>
       <p>
-        {{streamer.description}}
-        <curi-link to='Stream' :params='{ username: streamer.username }'>
+        {{stream.description}}
+        <curi-link to='Stream' :params='{ username: stream.username }'>
           Start watching!
         </curi-link>
       </p>
@@ -34,7 +34,7 @@
 
   export default {
     name: 'Feature',
-    props: ['streamer'],
+    props: ['stream'],
     components: {
       Thumbnail
     }

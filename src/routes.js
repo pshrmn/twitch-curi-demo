@@ -64,7 +64,7 @@ export default [
           },
           response({ route, resolved, set }) {
             set.body(Game);
-            set.data({ streamers: resolved.every });
+            set.data({ streams: resolved.every });
             set.title(`Browsing ${route.params.game}`);
           }
         }
@@ -76,7 +76,7 @@ export default [
     path: ':username',
     match: {
       every({ params }) {
-        const user = API.streamer(params.username);
+        const user = API.stream(params.username);
         if (user) {
           return Promise.resolve(user);
         }

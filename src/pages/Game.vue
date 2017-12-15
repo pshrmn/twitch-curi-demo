@@ -3,24 +3,24 @@
     <h1>Browsing {{$curi.response.params.game}}</h1>
     <div class='stream-list'>
       <div
-        v-for="streamer in $curi.response.data.streamers"
-        :key="streamer.username"
+        v-for="stream in $curi.response.data.streams"
+        :key="stream.id"
         class="stream"
       >
         <div>
-          <curi-link to='Stream' :params="{ username: streamer.username}">
+          <curi-link to='Stream' :params="{ username: stream.username}">
             <Thumbnail
               width='150'
               height='200'
-              v-bind="streamer.colors"
+              v-bind="stream.colors"
             />
           </curi-link>
         </div>
         <div>
-          <curi-link class='title' to='Stream' :params="{ username: streamer.username}">
-            {{streamer.username}}
+          <curi-link class='title' to='Stream' :params="{ username: stream.username}">
+            {{stream.username}}
           </curi-link>
-          <p>{{fmt(streamer.watching)}} Viewers</p>
+          <p>{{fmt(stream.watching)}} Viewers</p>
         </div>
       </div>
     </div>

@@ -19,7 +19,8 @@ const streamTitle = () => {
   return words.join(' ');
 };
 
-export const stream = () => ({
+export const stream = id => ({
+  id,
   ...user(true),
   watching: viewerWeights(),
   title: streamTitle(),

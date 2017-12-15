@@ -7,11 +7,11 @@
       <div class='featured'>
         <h4>Featured Streamers</h4>
         <div
-          v-for="streamer in featured"
-          :key="streamer.username"
+          v-for="stream in featured"
+          :key="stream.id"
         >
-          <curi-link to='Stream' :params="{ username: streamer.username }">
-            {{streamer.username}}
+          <curi-link to='Stream' :params="{ username: stream.username }">
+            {{stream.username}}
           </curi-link>
         </div>
       </div>

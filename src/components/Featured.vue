@@ -1,14 +1,14 @@
 <template>
   <div class='featured'>
-    <Featuring :streamer='activeFeatured' />
+    <Featuring :stream='activeFeatured' />
     <Carousel>
       <div
-        v-for="(streamer, index) in streamers"
-        :key="streamer.username"
+        v-for="(stream, index) in streams"
+        :key="stream.id"
         :class="{ 'featured-thumbnail': true, 'active': index === active }"
         v-on:click="active = index"
       >
-        <div class='viewers'>{{streamer.watching}}</div>
+        <div class='viewers'>{{stream.watching}}</div>
       </div>
     </Carousel>
   </div>
@@ -20,7 +20,7 @@
 
   export default {
     name: 'Featured',
-    props: ['streamers'],
+    props: ['streams'],
     data() {
       return {
         active: 0
@@ -28,7 +28,7 @@
     },
     computed: {
       activeFeatured() {
-        return this.streamers[this.active];
+        return this.streams[this.active];
       }
     },
     components: {

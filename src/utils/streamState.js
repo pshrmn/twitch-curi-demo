@@ -10,7 +10,7 @@ for (let g = 0; g < 20; g++) {
 
 const STREAMS = [];
 for (let g=0; g<100; g++) {
-  const s = stream();
+  const s = stream(g);
   STREAMS.push(s);
 
   const playing = GAMES[rand(GAMES.length)];
@@ -38,7 +38,7 @@ export default {
     ).slice(0, count);
   },
   /* streamers */
-  streamer(username) {
+  stream(username) {
     return STREAMS.find(u => u.username === username);
   },
   streams(filter = emptyFilter, sort) {
