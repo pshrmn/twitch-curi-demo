@@ -26,16 +26,24 @@
   .stream-info {
     margin: 3px 0;
   }
-  .stream {
-    display: inline-block;
-    margin-left: 5px;
-  }
-  h4, h5 {
-    font-weight: normal;
-  }
+
   a {
     color: #fff;
     text-decoration: none;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  .stream {
+    margin-left: 5px;
+  }
+
+  h4, h5 {
+    font-weight: normal;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 150px;
   }
 
 </style>
