@@ -2,7 +2,7 @@
   <div class='games-list'>
     <div
       v-for="game in games"
-      :key="game.name"
+      :key="game.id"
       class='game'
     >
       <div>

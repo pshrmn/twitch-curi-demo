@@ -40,6 +40,7 @@ const endNouns = [
   'Space',
   'Jungle'
 ];
+let id = 0;
 
 export function game() {
   const name = [
@@ -48,6 +49,7 @@ export function game() {
     endNouns[rand(endNouns.length)]
   ].join(' ');
   return {
+    id: id++,
     name,
     watching: 0,
     colors: colors()
