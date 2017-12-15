@@ -5,22 +5,27 @@
     </div>
     <div class='content'>
       <div class='featured'>
-        <h4>Featured Streamers</h4>
-        <div
+        <h3 v-if="!hidden">Featured Streamers</h3>
+        <h3 v-else>
+          <font-awesome-icon :icon="camera" />
+        </h3>
+        <StreamBadge
           v-for="stream in featured"
           :key="stream.id"
-        >
-          <curi-link to='Stream' :params="{ username: stream.username }">
-            {{stream.username}}
-          </curi-link>
-        </div>
+          :stream="stream"
+          :hidden="hidden"
+        />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import API from '../utils/streamState';
+  import FontAwesomeIcon from '@fortawesome/vue-fontawesome';
+  import { faCamera } from '@fortawesome/fontawesome-free-solid';
+
+  import API from '../../utils/streamState';
+  import StreamBadge from './StreamBadge';
 
   export default {
     name: 'LeftSideBar',
@@ -29,6 +34,13 @@
         featured: API.featuredStreams(5),
         hidden: false
       };
+    },
+    computed: {
+      camera: () => faCamera
+    },
+    components: {
+      StreamBadge,
+      FontAwesomeIcon
     }
   };
 </script>
@@ -36,7 +48,8 @@
 <style scoped>
   .left-sidebar {
     background: #222233;
-    max-width: 200px;
+    width: 225px;
+    flex-shrink: 0;
     height: calc(100vh - 50px);
     position: relative;
     margin-right: 25px;
@@ -44,11 +57,7 @@
   }
 
   .left-sidebar.hidden {
-    width: 50px;
-  }
-
-  .hidden .content {
-    display: none;
+    width: 45px;
   }
 
   .toggle {
@@ -62,12 +71,13 @@
     line-height: 1.5em;
     cursor: pointer;
   }
-
-  a {
-    color: #fff;
-  }
-
   .content {
-    padding: 0 15px;
+    padding: 15px 15px 0;
+  }
+  .hidden .content {
+    padding: 15px 5px 0;
+  }
+  h3 {
+    text-align: center;
   }
 </style>
