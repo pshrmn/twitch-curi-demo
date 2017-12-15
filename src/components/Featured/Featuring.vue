@@ -30,7 +30,7 @@
 </template>
 
 <script>
-  import Thumbnail from './Thumbnail';
+  import Thumbnail from '../Thumbnail';
 
   export default {
     name: 'Feature',
