@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='browsing-content'>
     <h1>Browsing {{$curi.response.params.game}}</h1>
     <div class='stream-list'>
       <div
@@ -43,6 +43,11 @@
 </script>
 
 <style scoped>
+  .browsing-content {
+    height: calc(100vh - 50px);
+    overflow-y: scroll;
+  }
+
   .stream-list {
     display: flex;
     flex-flow: row wrap;
