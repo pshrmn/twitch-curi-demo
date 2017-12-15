@@ -28,6 +28,7 @@
   }
   .stream {
     display: inline-block;
+    margin-left: 5px;
   }
   h4, h5 {
     font-weight: normal;
