@@ -111,6 +111,11 @@
     font-size: 1.5em;
   }
 
+  .stream-info a {
+    color: #2c3e50;
+    text-decoration: none;
+  }
+
   .thumbnail {
     margin-right: 10px;
   }
