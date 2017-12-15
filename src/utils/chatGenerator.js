@@ -10,12 +10,12 @@ export default function() {
       randomTimeout(fn);
     }, 2000 + Math.floor(Math.random()*500));
   }
-
+  let id = 0;
   return {
     chatLines,
     start() {
       randomTimeout(() => {
-        chatLines.push({ username: 'Hal', text: sentence(), key: chatLines.length });
+        chatLines.push({ username: 'Hal', text: sentence(), key: id++ });
         if (chatLines.length > 50) {
           chatLines.shift();
         }
