@@ -21,7 +21,10 @@ const adjectives = [
   'Super',
   'Evil',
   'Giant',
-  'Tiny'
+  'Tiny',
+  'Secret',
+  'Mysterious',
+  'Random'
 ];
 
 const nouns = [
@@ -34,11 +37,15 @@ const nouns = [
   'Wolf',
   'Dog',
   'Cat',
+  'Fish',
   'Octopus',
   'Monkey',
   'Gorilla',
   'Captain',
-  'Noob'
+  'Noob',
+  'Pro',
+  'Player',
+  'Alien'
 ];
 
 function randomAdjective() {
@@ -48,7 +55,7 @@ function randomAdjective() {
 function streamName() {
   const adj = randomAdjective();
   const noun = nouns[rand(nouns.length)];
-  return `${adj}${noun}${Math.random() > 0.75 ? rand(10000) : ''}`;
+  return `${adj}${noun}${Math.random() > 0.5 ? rand(10000) : ''}`;
 }
 
 const followerCount = weightedRandomNumberGenerator([
