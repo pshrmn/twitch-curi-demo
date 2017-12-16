@@ -21,7 +21,6 @@ export default function() {
       });
     },
     stop() {
-      console.log('STOPPING');
       this.chatLines = [];
       clearTimeout(timeout);
     }
