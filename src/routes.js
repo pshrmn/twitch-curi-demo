@@ -55,9 +55,11 @@ export default [
         path: 'all',
         match: {
           initial: () => autoResolve(import('./pages/Popular')),
+          every: () => API.topStream(),
           response({ resolved, set }) {
             set.body(resolved.initial);
-            set.tiel('Browsing Popular Streams');
+            set.title('Popular Streams');
+            set.data({ streams: resolved.every });
           }
         }
       },

@@ -1,24 +1,22 @@
 <template>
-  <div class='browsing-content'>
-    <h1>Browsing</h1>
+  <BrowseBase>
+    <h1>Browsing Popular Games</h1>
     <GamesList :games='$curi.response.data.games' />
-  </div>
+  </BrowseBase>
 </template>
 
 <script>
+  import BrowseBase from '../components/BrowseBase';
   import GamesList from '../components/GamesList';
 
   export default {
     name: 'Browse',
     components: {
+      BrowseBase,
       GamesList
     }
   };
 </script>
 
 <style scoped>
-  .browsing-content {
-    height: calc(100vh - 50px);
-    overflow-y: scroll;
-  }
 </style>
