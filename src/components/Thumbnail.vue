@@ -9,6 +9,8 @@
     computed: {
       style() {
         return {
+          width: `${this.width}px`,
+          height: `${this.height}px`,
           'border-width': `${this.height/2}px ${this.width/2}px`,
           'border-style': 'solid',
           'border-color': `${this.top} ${this.right} ${this.bottom} ${this.left}`
