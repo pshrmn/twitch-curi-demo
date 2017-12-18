@@ -8,7 +8,7 @@
           height='50'
           v-bind='stream.colors'
         />
-        <div>
+        <div class='user-container'>
           <h2>
             {{stream.username}}
           </h2>
@@ -57,6 +57,7 @@
   .info {
     color: #efefef;
     padding: 0 15px;
+    min-width: 0;
   }
 
   .user {
@@ -69,8 +70,15 @@
     margin-right: 5px;
   }
 
-  .user h2 {
+  .user-container {
+    min-width: 0;
+  }
+
+  .user-container h2 {
     font-size: 1.1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .user h3 {
