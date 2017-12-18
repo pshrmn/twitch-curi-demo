@@ -14,6 +14,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@curi/addon-active": "^1.0.0-beta.5",
     "@curi/core": "^1.0.0-beta.22",
     "@curi/side-effect-title": "^1.0.0-beta.8",
     "@curi/vue": "^1.0.0-beta.10",

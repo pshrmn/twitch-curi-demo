@@ -5,6 +5,7 @@ import createConfig from '@curi/core';
 import Browser from '@hickory/browser';
 import { installCuri } from '@curi/vue';
 import createTitleSideEffect from '@curi/side-effect-title';
+import createActiveAddon from '@curi/addon-active';
 
 import routes from './routes';
 import App from './App';
@@ -12,6 +13,7 @@ import App from './App';
 const history = Browser();
 const title = createTitleSideEffect({ suffix: 'Glitch!', delimiter: '|' });
 const config = createConfig(history, routes, {
+  addons: [createActiveAddon()],
   sideEffects: [{ fn: title }]
 });
 installCuri(Vue, config);
