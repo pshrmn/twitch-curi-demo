@@ -1,7 +1,7 @@
 <template>
   <div class='topbar'>
     <nav>
-      <curi-link to='Home' class='home'>Glitch</curi-link>
+      <curi-link to='Home' class='home'>Glitch!</curi-link>
       <curi-link to='Browse'>Browse</curi-link>
     </nav>
   </div>
