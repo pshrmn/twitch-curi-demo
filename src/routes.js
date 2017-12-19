@@ -1,9 +1,8 @@
 import API from './utils/streamState';
 
-// Vue auto-resolves import()s to return module.default,
-// and CodeSandbox simulates the Vue behavior. This
-// function allows us to work with either the full module
-// contents or just the already-resolved default value.
+// The vue-loader used by CodeSandbox compiles
+// to CommonJS, so we need to handle modules
+// with no default property
 const autoResolve = pr => (
   pr.then(module => (
     // eslint-disable-next-line no-underscore-dangle
