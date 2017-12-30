@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import createConfig from '@curi/core';
+import curi from '@curi/core';
 import Browser from '@hickory/browser';
 import { installCuri } from '@curi/vue';
 import createTitleSideEffect from '@curi/side-effect-title';
@@ -12,15 +12,15 @@ import App from './App';
 
 const history = Browser();
 const title = createTitleSideEffect({ suffix: 'Glitch!', delimiter: '|' });
-const config = createConfig(history, routes, {
+const router = curi(history, routes, {
   addons: [createActiveAddon()],
   sideEffects: [{ fn: title }]
 });
-installCuri(Vue, config);
+installCuri(Vue, router);
 
 Vue.config.productionTip = false;
 
-config.respond(() => {
+router.respond(() => {
   /* eslint-disable no-new */
   new Vue({
     el: '#app',
