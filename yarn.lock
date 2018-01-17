@@ -28,9 +28,9 @@
   dependencies:
     "@curi/core" "^1.0.0-beta.22"
 
-"@curi/vue@^1.0.0-beta.13":
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.13.tgz#eb43ac8629b5ca9d7b9a78b76d3eee14f71c8eee"
+"@curi/vue@^1.0.0-beta.14":
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.14.tgz#81eb1308d3c184c787aad84cdfb8e9e449cc175b"
   dependencies:
     "@curi/core" "^1.0.0-beta.23"
     "@hickory/root" "^1.0.0-beta.6"

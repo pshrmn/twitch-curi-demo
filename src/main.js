@@ -3,7 +3,7 @@
 import Vue from 'vue';
 import curi from '@curi/core';
 import Browser from '@hickory/browser';
-import { installCuri } from '@curi/vue';
+import { CuriPlugin } from '@curi/vue';
 import createTitleSideEffect from '@curi/side-effect-title';
 import createActiveAddon from '@curi/addon-active';
 
@@ -16,8 +16,8 @@ const router = curi(history, routes, {
   addons: [createActiveAddon()],
   sideEffects: [{ fn: title }]
 });
-installCuri(Vue, router);
 
+Vue.use(CuriPlugin, { router });
 Vue.config.productionTip = false;
 
 router.respond(() => {
