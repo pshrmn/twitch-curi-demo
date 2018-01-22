@@ -15,9 +15,9 @@
     "@hickory/root" "^1.0.0-beta.6"
     path-to-regexp "^2.1.0"
 
-"@curi/core@^1.0.0-beta.23":
-  version "1.0.0-beta.23"
-  resolved "https://registry.yarnpkg.com/@curi/core/-/core-1.0.0-beta.23.tgz#1faf39a00e4a7e00bdab9b402424e0c05ea2dc1d"
+"@curi/core@^1.0.0-beta.24":
+  version "1.0.0-beta.24"
+  resolved "https://registry.yarnpkg.com/@curi/core/-/core-1.0.0-beta.24.tgz#896811859523ee83e3bb7ad6bb87059ef33e87e7"
   dependencies:
     "@hickory/root" "^1.0.0-beta.6"
     path-to-regexp "^2.1.0"
@@ -28,11 +28,11 @@
   dependencies:
     "@curi/core" "^1.0.0-beta.22"
 
-"@curi/vue@^1.0.0-beta.14":
-  version "1.0.0-beta.14"
-  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.14.tgz#81eb1308d3c184c787aad84cdfb8e9e449cc175b"
+"@curi/vue@^1.0.0-beta.15":
+  version "1.0.0-beta.15"
+  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.15.tgz#63f92ae8f581b98bf42954ee5aa0ee7a754b8b61"
   dependencies:
-    "@curi/core" "^1.0.0-beta.23"
+    "@curi/core" "^1.0.0-beta.24"
     "@hickory/root" "^1.0.0-beta.6"
     "@types/warning" "^3.0.0"
     warning "^3.0.0"
