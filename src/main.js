@@ -5,7 +5,7 @@ import curi from '@curi/core';
 import Browser from '@hickory/browser';
 import { CuriPlugin } from '@curi/vue';
 import createTitleSideEffect from '@curi/side-effect-title';
-import createActiveAddon from '@curi/addon-active';
+import active from '@curi/route-active';
 
 import routes from './routes';
 import App from './App';
@@ -13,8 +13,8 @@ import App from './App';
 const history = Browser();
 const title = createTitleSideEffect({ suffix: 'Glitch!', delimiter: '|' });
 const router = curi(history, routes, {
-  addons: [createActiveAddon()],
-  sideEffects: [{ fn: title }]
+  route: [active()],
+  sideEffects: [{ effect: title }]
 });
 
 Vue.use(CuriPlugin, { router });
@@ -27,4 +27,4 @@ router.respond(() => {
     template: '<App/>',
     components: { App }
   });
-}, { once: true });
+});

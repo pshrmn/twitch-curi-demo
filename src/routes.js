@@ -16,56 +16,64 @@ export default [
   {
     name: 'Home',
     path: '',
-    match: {
+    on: {
       initial: () => autoResolve(import('./pages/Home')),
       every() {
         return Promise.all([
           API.featuredStreams(10),
           API.topGames(10)
         ]);
-      },
-      response({ resolved, set }) {
-        set.body(resolved.initial);
-        set.data({
+      }
+    },
+    response({ resolved }) {
+      return {
+        body: resolved.initial,
+        data: {
           featured: resolved.every[0],
           games: resolved.every[1]
-        });
-        set.title('Home');
-      }
+        },
+        title: 'Home'
+      };
     }
   },
   {
     name: 'Browse',
     path: 'directory',
-    match: {
+    on: {
       initial: () => autoResolve(import('./pages/Browse')),
-      every() {
-        return API.topGames();
-      },
-      response({ resolved, set }) {
-        set.body(resolved.initial);
-        set.data({ games: resolved.every });
-        set.title('Browsing Games');
-      }
+      every: () => API.topGames()
+    },
+    response({ resolved }) {
+      return {
+        body: resolved.initial,
+        data: {
+          games: resolved.every
+        },
+        title: 'Browsing Games'
+      };
     },
     children: [
       {
         name: 'Browse Popular',
         path: 'all',
-        match: {
+        on: {
           initial: () => autoResolve(import('./pages/Popular')),
-          every: () => API.topStream(),
-          response({ resolved, set }) {
-            set.body(resolved.initial);
-            set.title('Popular Streams');
-            set.data({ streams: resolved.every });
-          }
+          every: () => API.topStream()
+        },
+        response({ resolved }) {
+          return {
+            body: resolved.initial,
+            data: {
+              streams: resolved.every
+            },
+            title: 'Popular Streams'
+          };
         }
       },
       {
         name: 'Game',
         path: 'game/:game',
-        match: {
+        on: {
           initial: () => autoResolve(import('./pages/Game')),
           every({ params }) {
             try {
@@ -73,12 +81,16 @@ export default [
             } catch (e) {
               return Promise.reject('Game not found');
             }
-          },
-          response({ route, resolved, set }) {
-            set.body(resolved.initial);
-            set.data({ streams: resolved.every });
-            set.title(`Browsing ${route.params.game}`);
           }
+        },
+        response({ params, resolved }) {
+          return {
+            body: resolved.initial,
+            data: {
+              streams: resolved.every
+            },
+            title: `Browsing ${params.game}`
+          };
         }
       }
     ]
@@ -86,25 +98,29 @@ export default [
   {
     name: 'Stream',
     path: ':username',
-    match: {
+    on: {
       initial: () => autoResolve(import('./pages/Stream')),
       every({ params }) {
         const user = API.stream(params.username);
         if (user) {
-          return Promise.resolve({ user });
+          return Promise.resolve(user);
         }
-        return Promise.resolve({ error: 'The requested user could not be found.' });
-      },
-      response({ route, resolved, set }) {
-        set.body(resolved.initial);
-        set.title(route.params.username);
-        const { user, error } = resolved.every;
-        if (error) {
-          set.error(error);
-        } else {
-          set.data({ user });
-        }
+        return Promise.reject('The requested user could not be found.');
       }
+    },
+    response({ params, error, resolved }) {
+      const modifiers = {
+        body: resolved.initial,
+        title: params.username
+      };
+      if (error) {
+        modifiers.error = error;
+      } else {
+        modifiers.data = {
+          user: resolved.every
+        };
+      }
+      return modifiers;
     }
   }
 ];

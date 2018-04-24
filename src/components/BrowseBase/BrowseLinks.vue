@@ -2,30 +2,26 @@
   <nav>
     <ul>
       <li>
-        <curi-link to='Browse' :active="{ merge }">
+        <active-link to='Browse'>
           Games
-        </curi-link>
+        </active-link>
       </li>
       <li>
-        <curi-link to='Browse Popular' :active="{ merge }">
+        <active-link to='Browse Popular'>
           Streams
-        </curi-link>
+        </active-link>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-  function merge(props) {
-    // eslint-disable-next-line no-param-reassign
-    props.class = 'active';
-    return props;
-  }
+  import ActiveLink from '../ActiveLink';
 
   export default {
     name: 'BrowseLinks',
-    methods: {
-      merge
+    components: {
+      'active-link': ActiveLink
     }
   };
 </script>
