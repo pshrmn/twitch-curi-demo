@@ -3,7 +3,7 @@
     <TopBar />
     <div class='content'>
       <LeftSideBar v-if="$curi.response.name !== 'Home'" />
-      <main>
+      <main v-curi-focus="$curi.response" tabIndex="-1">
         <component :is="$curi.response.body" />
       </main>
     </div>
@@ -62,5 +62,6 @@ p {
 
 main {
   flex-grow: 2;
+  outline: none;
 }
 </style>
