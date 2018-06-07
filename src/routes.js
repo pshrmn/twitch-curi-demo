@@ -83,13 +83,13 @@ export default [
             }
           }
         },
-        response({ params, resolved }) {
+        response({ match, resolved }) {
           return {
             body: resolved.initial,
             data: {
               streams: resolved.every
             },
-            title: `Browsing ${params.game}`
+            title: `Browsing ${match.params.game}`
           };
         }
       }
@@ -108,13 +108,13 @@ export default [
         return Promise.reject('The requested user could not be found.');
       }
     },
-    response({ params, error, resolved }) {
+    response({ match, resolved }) {
       const modifiers = {
         body: resolved.initial,
-        title: params.username
+        title: match.params.username
       };
-      if (error) {
-        modifiers.error = error;
+      if (resolved.error) {
+        modifiers.error = resolved.error;
       } else {
         modifiers.data = {
           user: resolved.every
