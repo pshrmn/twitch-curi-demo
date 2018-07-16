@@ -1,9 +1,12 @@
 <template>
-  <BrowseBase>
+  <div v-if="error">
+    {{error}}
+  </div>
+  <BrowseBase v-else>
     <h1>Browsing {{$curi.response.params.game}}</h1>
     <div class='stream-list'>
       <StreamsList
-        v-for="stream in $curi.response.data.streams"
+        v-for="stream in streams"
         :key="stream.id"
         :stream="stream"
       />
@@ -17,6 +20,14 @@
 
   export default {
     name: 'Game',
+    computed: {
+      error() {
+        return this.$curi.response.data.error;
+      },
+      streams() {
+        return this.$curi.response.data.streams;
+      }
+    },
     components: {
       BrowseBase,
       StreamsList

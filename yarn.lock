@@ -2,40 +2,37 @@
 # yarn lockfile v1
 
 
-"@curi/addon-active@^1.0.0-beta.5":
-  version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@curi/addon-active/-/addon-active-1.0.0-beta.5.tgz#e4f4431cff4e87152c08e7bb304c5be16e9aa273"
+"@curi/core@^1.0.0-beta.29", "@curi/core@^1.0.0-beta.32":
+  version "1.0.0-beta.37"
+  resolved "https://registry.yarnpkg.com/@curi/core/-/core-1.0.0-beta.37.tgz#1a0f54aa283e5d23fdcac02e24dd19369af57faa"
   dependencies:
-    "@curi/core" "^1.0.0-beta.11"
+    "@curi/router" "^1.0.0-beta.37"
 
-"@curi/core@^1.0.0-beta.11", "@curi/core@^1.0.0-beta.22":
-  version "1.0.0-beta.22"
-  resolved "https://registry.yarnpkg.com/@curi/core/-/core-1.0.0-beta.22.tgz#0e3df7c7caf431d4a2c8c2a69831bc2338838a8a"
+"@curi/route-active@^1.0.0-beta.6":
+  version "1.0.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@curi/route-active/-/route-active-1.0.0-beta.6.tgz#a36989510aa82b2d13b1bd871c875ef025f06a80"
   dependencies:
-    "@hickory/root" "^1.0.0-beta.6"
+    "@curi/core" "^1.0.0-beta.29"
+
+"@curi/router@^1.0.0-beta.36", "@curi/router@^1.0.0-beta.37":
+  version "1.0.0-beta.37"
+  resolved "https://registry.yarnpkg.com/@curi/router/-/router-1.0.0-beta.37.tgz#a4ab61beffcb3811c3cda535e05240ee157351ec"
+  dependencies:
+    "@hickory/root" "1.0.0-beta.8"
     path-to-regexp "^2.1.0"
 
-"@curi/core@^1.0.0-beta.24":
-  version "1.0.0-beta.24"
-  resolved "https://registry.yarnpkg.com/@curi/core/-/core-1.0.0-beta.24.tgz#896811859523ee83e3bb7ad6bb87059ef33e87e7"
+"@curi/side-effect-title@^1.0.0-beta.10":
+  version "1.0.0-beta.10"
+  resolved "https://registry.yarnpkg.com/@curi/side-effect-title/-/side-effect-title-1.0.0-beta.10.tgz#663459a669ea3697415b7c890d4ca72f05a9418c"
   dependencies:
-    "@hickory/root" "^1.0.0-beta.6"
-    path-to-regexp "^2.1.0"
+    "@curi/core" "^1.0.0-beta.32"
 
-"@curi/side-effect-title@^1.0.0-beta.8":
-  version "1.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@curi/side-effect-title/-/side-effect-title-1.0.0-beta.8.tgz#0099745de7c8e773639be9d0cab406cca2157f76"
+"@curi/vue@^1.0.0-beta.19":
+  version "1.0.0-beta.20"
+  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.20.tgz#241ffa6de8b90cad624ed3fbcec5dcaf90f37815"
   dependencies:
-    "@curi/core" "^1.0.0-beta.22"
-
-"@curi/vue@^1.0.0-beta.15":
-  version "1.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.15.tgz#63f92ae8f581b98bf42954ee5aa0ee7a754b8b61"
-  dependencies:
-    "@curi/core" "^1.0.0-beta.24"
-    "@hickory/root" "^1.0.0-beta.6"
-    "@types/warning" "^3.0.0"
-    warning "^3.0.0"
+    "@curi/router" "^1.0.0-beta.36"
+    "@hickory/root" "^1.0.0-beta.7"
 
 "@fortawesome/fontawesome-free-solid@^5.0.1":
   version "5.0.1"
@@ -64,7 +61,17 @@
   version "1.0.0-beta.1"
   resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-1.0.0-beta.1.tgz#01da892836376b4ec0964a77692e0c8ac026e745"
 
-"@hickory/root@^1.0.0-beta.5", "@hickory/root@^1.0.0-beta.6":
+"@hickory/location-utils@^1.0.0-beta.2":
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-1.0.0-beta.2.tgz#22cea6b0446f4d76685b03000e432cf43be40153"
+
+"@hickory/root@1.0.0-beta.8", "@hickory/root@^1.0.0-beta.7":
+  version "1.0.0-beta.8"
+  resolved "https://registry.yarnpkg.com/@hickory/root/-/root-1.0.0-beta.8.tgz#f4132350507db8edd241161a5e86ac6db9301be2"
+  dependencies:
+    "@hickory/location-utils" "^1.0.0-beta.2"
+
+"@hickory/root@^1.0.0-beta.5":
   version "1.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/@hickory/root/-/root-1.0.0-beta.6.tgz#c5423a23cb65880728c40a37ea63e33dccee6e4f"
   dependencies:
@@ -77,10 +84,6 @@
 "@types/strip-json-comments@0.0.30":
   version "0.0.30"
   resolved "https://registry.yarnpkg.com/@types/strip-json-comments/-/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
-
-"@types/warning@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@types/warning/-/warning-3.0.0.tgz#0d2501268ad8f9962b740d387c4654f5f8e23e52"
 
 abab@^1.0.3:
   version "1.0.4"
@@ -6927,12 +6930,6 @@ walker@~1.0.5:
   resolved "https://registry.yarnpkg.com/walker/-/walker-1.0.7.tgz#2f7f9b8fd10d677262b18a884e28d19618e028fb"
   dependencies:
     makeerror "1.0.x"
-
-warning@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-3.0.0.tgz#32e5377cb572de4ab04753bdf8821c01ed605b7c"
-  dependencies:
-    loose-envify "^1.0.0"
 
 watch@~0.18.0:
   version "0.18.0"

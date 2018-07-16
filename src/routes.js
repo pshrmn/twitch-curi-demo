@@ -16,21 +16,17 @@ export default [
   {
     name: 'Home',
     path: '',
-    on: {
-      initial: () => autoResolve(import('./pages/Home')),
-      every() {
-        return Promise.all([
-          API.featuredStreams(10),
-          API.topGames(10)
-        ]);
-      }
+    match: {
+      body: () => autoResolve(import('./pages/Home')),
+      featured: () => API.featuredStreams(10),
+      games: () => API.topGames(10)
     },
     response({ resolved }) {
       return {
-        body: resolved.initial,
+        body: resolved.body,
         data: {
-          featured: resolved.every[0],
-          games: resolved.every[1]
+          featured: resolved.featured,
+          games: resolved.games
         },
         title: 'Home'
       };
@@ -39,15 +35,15 @@ export default [
   {
     name: 'Browse',
     path: 'directory',
-    on: {
-      initial: () => autoResolve(import('./pages/Browse')),
-      every: () => API.topGames()
+    match: {
+      body: () => autoResolve(import('./pages/Browse')),
+      games: () => API.topGames()
     },
     response({ resolved }) {
       return {
-        body: resolved.initial,
+        body: resolved.body,
         data: {
-          games: resolved.every
+          games: resolved.games
         },
         title: 'Browsing Games'
       };
@@ -56,15 +52,15 @@ export default [
       {
         name: 'Browse Popular',
         path: 'all',
-        on: {
-          initial: () => autoResolve(import('./pages/Popular')),
-          every: () => API.topStream()
+        match: {
+          body: () => autoResolve(import('./pages/Popular')),
+          streams: () => API.topStream()
         },
         response({ resolved }) {
           return {
-            body: resolved.initial,
+            body: resolved.body,
             data: {
-              streams: resolved.every
+              streams: resolved.streams
             },
             title: 'Popular Streams'
           };
@@ -73,21 +69,21 @@ export default [
       {
         name: 'Game',
         path: 'game/:game',
-        on: {
-          initial: () => autoResolve(import('./pages/Game')),
-          every({ params }) {
+        match: {
+          body: () => autoResolve(import('./pages/Game')),
+          streamers: ({ params }) => {
             try {
-              return API.streamersPlaying(params.game);
+              return Promise.resolve({ streams: API.streamersPlaying(params.game) });
             } catch (e) {
-              return Promise.reject('Game not found');
+              return Promise.resolve({ error: 'Game not found' });
             }
           }
         },
         response({ match, resolved }) {
           return {
-            body: resolved.initial,
+            body: resolved.body,
             data: {
-              streams: resolved.every
+              ...resolved.streamers
             },
             title: `Browsing ${match.params.game}`
           };
@@ -98,29 +94,29 @@ export default [
   {
     name: 'Stream',
     path: ':username',
-    on: {
-      initial: () => autoResolve(import('./pages/Stream')),
-      every({ params }) {
+    match: {
+      body: () => autoResolve(import('./pages/Stream')),
+      user: ({ params }) => {
         const user = API.stream(params.username);
         if (user) {
-          return Promise.resolve(user);
+          return Promise.resolve({ user });
         }
-        return Promise.reject('The requested user could not be found.');
+        return Promise.resolve({ error: 'The requested user could not be found.' });
       }
     },
-    response({ match, resolved }) {
-      const modifiers = {
-        body: resolved.initial,
-        title: match.params.username
-      };
-      if (resolved.error) {
-        modifiers.error = resolved.error;
-      } else {
-        modifiers.data = {
-          user: resolved.every
+    response({ match, error, resolved }) {
+      if (error) {
+        return {
+          error
         };
       }
-      return modifiers;
+      return {
+        body: resolved.body,
+        title: match.params.username,
+        data: {
+          ...resolved.user
+        }
+      };
     }
   }
 ];
