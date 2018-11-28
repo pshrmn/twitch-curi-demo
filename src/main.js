@@ -11,7 +11,8 @@ import routes from './routes';
 import App from './App';
 
 const history = Browser();
-const title = createTitleSideEffect({ suffix: 'Glitch!', delimiter: '|' });
+const title = createTitleSideEffect(({ response }) => `${response.title} | Glitch!`);
+
 const router = curi(history, routes, {
   route: [active()],
   sideEffects: [title]
@@ -20,7 +21,7 @@ const router = curi(history, routes, {
 Vue.use(CuriPlugin, { router });
 Vue.config.productionTip = false;
 
-router.respond(() => {
+router.once(() => {
   /* eslint-disable no-new */
   new Vue({
     el: '#app',

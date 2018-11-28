@@ -1,23 +1,13 @@
+import { prepareRoutes } from '@curi/router';
+import { preferDefault } from '@curi/helpers';
 import API from './utils/streamState';
 
-// The vue-loader used by CodeSandbox compiles
-// to CommonJS, so we need to handle modules
-// with no default property
-const autoResolve = pr => (
-  pr.then(module => (
-    // eslint-disable-next-line no-underscore-dangle
-    module.__esModule && module.default
-      ? module.default
-      : module
-  ))
-);
-
-export default [
+export default prepareRoutes([
   {
     name: 'Home',
     path: '',
-    match: {
-      body: () => autoResolve(import('./pages/Home')),
+    resolve: {
+      body: () => import('./pages/Home').then(preferDefault),
       featured: () => API.featuredStreams(10),
       games: () => API.topGames(10)
     },
@@ -35,8 +25,8 @@ export default [
   {
     name: 'Browse',
     path: 'directory',
-    match: {
-      body: () => autoResolve(import('./pages/Browse')),
+    resolve: {
+      body: () => import('./pages/Browse').then(preferDefault),
       games: () => API.topGames()
     },
     response({ resolved }) {
@@ -52,8 +42,8 @@ export default [
       {
         name: 'Browse Popular',
         path: 'all',
-        match: {
-          body: () => autoResolve(import('./pages/Popular')),
+        resolve: {
+          body: () => import('./pages/Popular').then(preferDefault),
           streams: () => API.topStream()
         },
         response({ resolved }) {
@@ -69,8 +59,8 @@ export default [
       {
         name: 'Game',
         path: 'game/:game',
-        match: {
-          body: () => autoResolve(import('./pages/Game')),
+        resolve: {
+          body: () => import('./pages/Game').then(preferDefault),
           streamers: ({ params }) => {
             try {
               return Promise.resolve({ streams: API.streamersPlaying(params.game) });
@@ -94,8 +84,8 @@ export default [
   {
     name: 'Stream',
     path: ':username',
-    match: {
-      body: () => autoResolve(import('./pages/Stream')),
+    resolve: {
+      body: () => import('./pages/Stream').then(preferDefault),
       user: ({ params }) => {
         const user = API.stream(params.username);
         if (user) {
@@ -119,4 +109,4 @@ export default [
       };
     }
   }
-];
+]);

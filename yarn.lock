@@ -2,37 +2,37 @@
 # yarn lockfile v1
 
 
-"@curi/core@^1.0.0-beta.29", "@curi/core@^1.0.0-beta.32":
-  version "1.0.0-beta.37"
-  resolved "https://registry.yarnpkg.com/@curi/core/-/core-1.0.0-beta.37.tgz#1a0f54aa283e5d23fdcac02e24dd19369af57faa"
-  dependencies:
-    "@curi/router" "^1.0.0-beta.37"
+"@curi/helpers@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@curi/helpers/-/helpers-1.0.0.tgz#c791ee9c07796354f9144c643cdaeb674dc56a23"
 
-"@curi/route-active@^1.0.0-beta.6":
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@curi/route-active/-/route-active-1.0.0-beta.6.tgz#a36989510aa82b2d13b1bd871c875ef025f06a80"
+"@curi/route-active@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@curi/route-active/-/route-active-1.1.0.tgz#8aa1406d86b6302ed1fd7aa94edab4575ae2dcd0"
   dependencies:
-    "@curi/core" "^1.0.0-beta.29"
+    "@curi/router" "^1.1.0"
+    "@hickory/in-memory" "^1.0.2"
 
-"@curi/router@^1.0.0-beta.36", "@curi/router@^1.0.0-beta.37":
-  version "1.0.0-beta.37"
-  resolved "https://registry.yarnpkg.com/@curi/router/-/router-1.0.0-beta.37.tgz#a4ab61beffcb3811c3cda535e05240ee157351ec"
+"@curi/router@^1.0.4", "@curi/router@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@curi/router/-/router-1.1.0.tgz#d5610bf758a50921e037d2dd6f2cee9ac4edaaa5"
   dependencies:
-    "@hickory/root" "1.0.0-beta.8"
+    "@curi/helpers" "^1.0.0"
+    "@hickory/root" "^1.0.0"
     path-to-regexp "^2.1.0"
 
-"@curi/side-effect-title@^1.0.0-beta.10":
-  version "1.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@curi/side-effect-title/-/side-effect-title-1.0.0-beta.10.tgz#663459a669ea3697415b7c890d4ca72f05a9418c"
+"@curi/side-effect-title@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@curi/side-effect-title/-/side-effect-title-1.0.1.tgz#4e4aef41187d13762addefa70d076d4a1821a924"
   dependencies:
-    "@curi/core" "^1.0.0-beta.32"
+    "@curi/router" "^1.0.4"
 
-"@curi/vue@^1.0.0-beta.19":
-  version "1.0.0-beta.20"
-  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.20.tgz#241ffa6de8b90cad624ed3fbcec5dcaf90f37815"
+"@curi/vue@^1.0.0-beta.25":
+  version "1.0.0-beta.25"
+  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-1.0.0-beta.25.tgz#6835be1c4a1ab17c53840e08756a05152a6ca76c"
   dependencies:
-    "@curi/router" "^1.0.0-beta.36"
-    "@hickory/root" "^1.0.0-beta.7"
+    "@curi/router" "^1.0.4"
+    "@hickory/root" "^1.0.0"
 
 "@fortawesome/fontawesome-free-solid@^5.0.1":
   version "5.0.1"
@@ -46,36 +46,32 @@
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.0.21.tgz#8144b314f40830ff1eaa78806f0ae83f0041cd6e"
 
-"@hickory/browser@^1.0.0-beta.5":
-  version "1.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/@hickory/browser/-/browser-1.0.0-beta.5.tgz#ae4e0c268787672a5fba9fdda94c5fc5f54246c2"
+"@hickory/browser@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hickory/browser/-/browser-1.0.2.tgz#79fd780cd92fe8e563d3131043580205b233fdfc"
   dependencies:
-    "@hickory/dom-utils" "^1.0.0-beta.1"
-    "@hickory/root" "^1.0.0-beta.5"
+    "@hickory/dom-utils" "^1.0.2"
+    "@hickory/root" "^1.0.2"
 
-"@hickory/dom-utils@^1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@hickory/dom-utils/-/dom-utils-1.0.0-beta.1.tgz#a25af4b16adb9e8c9a87408a966f3dcb45dcce34"
+"@hickory/dom-utils@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hickory/dom-utils/-/dom-utils-1.0.2.tgz#6b283ebf733018817073f42a227692a8ac3b88e4"
 
-"@hickory/location-utils@^1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-1.0.0-beta.1.tgz#01da892836376b4ec0964a77692e0c8ac026e745"
-
-"@hickory/location-utils@^1.0.0-beta.2":
-  version "1.0.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-1.0.0-beta.2.tgz#22cea6b0446f4d76685b03000e432cf43be40153"
-
-"@hickory/root@1.0.0-beta.8", "@hickory/root@^1.0.0-beta.7":
-  version "1.0.0-beta.8"
-  resolved "https://registry.yarnpkg.com/@hickory/root/-/root-1.0.0-beta.8.tgz#f4132350507db8edd241161a5e86ac6db9301be2"
+"@hickory/in-memory@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hickory/in-memory/-/in-memory-1.0.2.tgz#4c70db528825da57387e6b18506006115401ecdb"
   dependencies:
-    "@hickory/location-utils" "^1.0.0-beta.2"
+    "@hickory/root" "^1.0.2"
 
-"@hickory/root@^1.0.0-beta.5":
-  version "1.0.0-beta.6"
-  resolved "https://registry.yarnpkg.com/@hickory/root/-/root-1.0.0-beta.6.tgz#c5423a23cb65880728c40a37ea63e33dccee6e4f"
+"@hickory/location-utils@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-1.0.2.tgz#b1db360d35b208eda029b45ebfa54f1b4643ad64"
+
+"@hickory/root@^1.0.0", "@hickory/root@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@hickory/root/-/root-1.0.2.tgz#e445e224226823c8025eb36c14557408281632e8"
   dependencies:
-    "@hickory/location-utils" "^1.0.0-beta.1"
+    "@hickory/location-utils" "^1.0.2"
 
 "@types/strip-bom@^3.0.0":
   version "3.0.0"
