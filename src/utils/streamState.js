@@ -39,7 +39,11 @@ export default {
   },
   /* streamers */
   stream(username) {
-    return STREAMS.find(u => u.username === username);
+    const user = STREAMS.find(u => u.username === username);
+    if (user) {
+      return Promise.resolve({ user, error: undefined });
+    }
+    return Promise.resolve({ user: undefined, error: 'The requested user could not be found.' });
   },
   streams(filter = emptyFilter, sort) {
     const filtered = STREAMS.filter(filter);
@@ -61,9 +65,13 @@ export default {
     ).slice(0, count);
   },
   streamersPlaying(name) {
-    return this.streams(
+    const streams = this.streams(
       s => s.playing.name === name,
       mostWatchers
     );
+    if (streams.length) {
+      return Promise.resolve({ streams, error: undefined });
+    }
+    return Promise.resolve({ streams: undefined, error: 'Game not found' });
   }
 };

@@ -78,10 +78,7 @@ export default prepareRoutes({
           resolve({ params }) {
             return Promise.all([
               import('./pages/Game').then(preferDefault),
-              new Promise((resolve) => {
-                const streams = API.streamersPlaying(params.game);
-                resolve(streams.length ? { streams } : { error: 'Game not found' });
-              })
+              API.streamersPlaying(params.game)
             ]);
           },
           respond({ match, resolved }) {
@@ -105,21 +102,10 @@ export default prepareRoutes({
       resolve({ params }) {
         return Promise.all([
           import('./pages/Stream').then(preferDefault),
-          new Promise((resolve) => {
-            const user = API.stream(params.username);
-            if (user) {
-              resolve({ user });
-            }
-            resolve({ error: 'The requested user could not be found.' });
-          })
+          API.stream(params.username)
         ]);
       },
-      respond({ match, error, resolved }) {
-        if (error) {
-          return {
-            error
-          };
-        }
+      respond({ match, resolved }) {
         const [body, user] = resolved;
         return {
           body,
