@@ -2,111 +2,135 @@ import { prepareRoutes } from '@curi/router';
 import { preferDefault } from '@curi/helpers';
 import API from './utils/streamState';
 
-export default prepareRoutes([
-  {
-    name: 'Home',
-    path: '',
-    resolve: {
-      body: () => import('./pages/Home').then(preferDefault),
-      featured: () => API.featuredStreams(10),
-      games: () => API.topGames(10)
-    },
-    response({ resolved }) {
-      return {
-        body: resolved.body,
-        data: {
-          featured: resolved.featured,
-          games: resolved.games
-        },
-        title: 'Home'
-      };
-    }
-  },
-  {
-    name: 'Browse',
-    path: 'directory',
-    resolve: {
-      body: () => import('./pages/Browse').then(preferDefault),
-      games: () => API.topGames()
-    },
-    response({ resolved }) {
-      return {
-        body: resolved.body,
-        data: {
-          games: resolved.games
-        },
-        title: 'Browsing Games'
-      };
-    },
-    children: [
-      {
-        name: 'Browse Popular',
-        path: 'all',
-        resolve: {
-          body: () => import('./pages/Popular').then(preferDefault),
-          streams: () => API.topStream()
-        },
-        response({ resolved }) {
-          return {
-            body: resolved.body,
-            data: {
-              streams: resolved.streams
-            },
-            title: 'Popular Streams'
-          };
-        }
+export default prepareRoutes({
+  routes: [
+    {
+      name: 'Home',
+      path: '',
+      resolve() {
+        return Promise.all([
+          import('./pages/Home').then(preferDefault),
+          API.featuredStreams(10),
+          API.topGames(10)
+        ]);
       },
-      {
-        name: 'Game',
-        path: 'game/:game',
-        resolve: {
-          body: () => import('./pages/Game').then(preferDefault),
-          streamers: ({ params }) => {
-            try {
-              return Promise.resolve({ streams: API.streamersPlaying(params.game) });
-            } catch (e) {
-              return Promise.resolve({ error: 'Game not found' });
-            }
-          }
-        },
-        response({ match, resolved }) {
-          return {
-            body: resolved.body,
-            data: {
-              ...resolved.streamers
-            },
-            title: `Browsing ${match.params.game}`
-          };
-        }
-      }
-    ]
-  },
-  {
-    name: 'Stream',
-    path: ':username',
-    resolve: {
-      body: () => import('./pages/Stream').then(preferDefault),
-      user: ({ params }) => {
-        const user = API.stream(params.username);
-        if (user) {
-          return Promise.resolve({ user });
-        }
-        return Promise.resolve({ error: 'The requested user could not be found.' });
-      }
-    },
-    response({ match, error, resolved }) {
-      if (error) {
+      respond({ resolved }) {
+        const [body, featured, games] = resolved;
         return {
-          error
+          body,
+          data: {
+            featured,
+            games
+          },
+          meta: {
+            title: 'Home'
+          }
         };
       }
-      return {
-        body: resolved.body,
-        title: match.params.username,
-        data: {
-          ...resolved.user
+    },
+    {
+      name: 'Browse',
+      path: 'directory',
+      resolve() {
+        return Promise.all([
+          import('./pages/Browse').then(preferDefault),
+          API.topGames()
+        ]);
+      },
+      respond({ resolved }) {
+        const [body, games] = resolved;
+        return {
+          body,
+          data: {
+            games
+          },
+          meta: {
+            title: 'Browsing Games'
+          }
+        };
+      },
+      children: [
+        {
+          name: 'Browse Popular',
+          path: 'all',
+          resolve() {
+            return Promise.all([
+              import('./pages/Popular').then(preferDefault),
+              API.topStream()
+            ]);
+          },
+          respond({ resolved }) {
+            const [body, streams] = resolved;
+            return {
+              body,
+              data: {
+                streams
+              },
+              meta: {
+                title: 'Popular Streams'
+              }
+            };
+          }
+        },
+        {
+          name: 'Game',
+          path: 'game/:game',
+          resolve({ params }) {
+            return Promise.all([
+              import('./pages/Game').then(preferDefault),
+              new Promise((resolve) => {
+                const streams = API.streamersPlaying(params.game);
+                resolve(streams.length ? { streams } : { error: 'Game not found' });
+              })
+            ]);
+          },
+          respond({ match, resolved }) {
+            const [body, streams] = resolved;
+            return {
+              body,
+              data: {
+                ...streams
+              },
+              meta: {
+                title: `Browsing ${match.params.game}`
+              }
+            };
+          }
         }
-      };
+      ]
+    },
+    {
+      name: 'Stream',
+      path: ':username',
+      resolve({ params }) {
+        return Promise.all([
+          import('./pages/Stream').then(preferDefault),
+          new Promise((resolve) => {
+            const user = API.stream(params.username);
+            if (user) {
+              resolve({ user });
+            }
+            resolve({ error: 'The requested user could not be found.' });
+          })
+        ]);
+      },
+      respond({ match, error, resolved }) {
+        if (error) {
+          return {
+            error
+          };
+        }
+        const [body, user] = resolved;
+        return {
+          body,
+          data: {
+            ...user
+          },
+          meta: {
+            title: match.params.username
+          }
+        };
+      }
     }
-  }
-]);
+  ]
+});

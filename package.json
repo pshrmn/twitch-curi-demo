@@ -15,14 +15,13 @@
   },
   "dependencies": {
     "@curi/helpers": "^1.0.0",
-    "@curi/route-active": "^1.1.0",
-    "@curi/router": "^1.1.0",
-    "@curi/side-effect-title": "^1.0.1",
-    "@curi/vue": "^1.0.0-beta.25",
+    "@curi/router": "^2.0.0-beta.12",
+    "@curi/side-effect-title": "^2.0.0-beta.2",
+    "@curi/vue": "^2.0.0-alpha.2",
     "@fortawesome/fontawesome": "^1.0.1",
     "@fortawesome/fontawesome-free-solid": "^5.0.1",
     "@fortawesome/vue-fontawesome": "^0.0.21",
-    "@hickory/browser": "^1.0.2",
+    "@hickory/browser": "^2.0.0-beta.11",
     "vue": "^2.5.2"
   },
   "devDependencies": {
