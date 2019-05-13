@@ -13,7 +13,7 @@
             {{stream.username}}
           </h2>
           <h3>
-            Playing <curi-link to='Game' :params='{ game: stream.playing.name }'>
+            Playing <curi-link name='Game' :params='{ game: stream.playing.name }'>
               {{stream.playing.name}}
             </curi-link>
           </h3>
@@ -21,7 +21,7 @@
       </div>
       <p>
         {{stream.description}}
-        <curi-link to='Stream' :params='{ username: stream.username }'>
+        <curi-link name='Stream' :params='{ username: stream.username }'>
           Start watching!
         </curi-link>
       </p>

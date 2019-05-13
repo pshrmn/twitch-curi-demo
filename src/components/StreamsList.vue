@@ -3,7 +3,7 @@
     class="stream"
   >
     <div>
-      <curi-link to='Stream' :params="{ username: stream.username}">
+      <curi-link name='Stream' :params="{ username: stream.username}">
         <Thumbnail
           width='150'
           height='200'
@@ -12,7 +12,7 @@
       </curi-link>
     </div>
     <div>
-      <curi-link class='title' to='Stream' :params="{ username: stream.username}">
+      <curi-link class='title' name='Stream' :params="{ username: stream.username}">
         {{stream.username}}
       </curi-link>
       <p>{{fmt(stream.watching)}} Viewers</p>

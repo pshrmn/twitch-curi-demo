@@ -6,7 +6,7 @@
       class='game'
     >
       <div>
-        <curi-link to='Game' :params="{ game: game.name }">
+        <curi-link name='Game' :params="{ game: game.name }">
           <Thumbnail
             width='150'
             height='200'
@@ -15,7 +15,7 @@
         </curi-link>
       </div>
       <div>
-        <curi-link class='title' to='Game' :params="{ game: game.name }">
+        <curi-link class='title' name='Game' :params="{ game: game.name }">
           {{game.name}}
         </curi-link>
         <p>{{fmt(game.watching)}} Viewers</p>

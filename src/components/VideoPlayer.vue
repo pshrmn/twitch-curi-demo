@@ -22,7 +22,7 @@
         <div>
           <div class='stream-title'>{{stream.title}}</div>
           <div>
-            <curi-link to='Game' :params="{ game: game.name }">
+            <curi-link name='Game' :params="{ game: game.name }">
               {{game.name}}
             </curi-link>
           </div>

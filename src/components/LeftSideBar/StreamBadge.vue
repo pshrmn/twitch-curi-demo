@@ -1,6 +1,6 @@
 <template>
   <div class='stream-info'>
-    <curi-link to='Stream' :params="{ username: stream.username }">
+    <curi-link name='Stream' :params="{ username: stream.username }">
       <Thumbnail width='35' height='35' v-bind="stream.colors" />
       <div class='stream' v-if="!hidden">
         <h4>{{stream.username}}</h4>

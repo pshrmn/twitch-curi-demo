@@ -1,6 +1,6 @@
 <template>
   <curi-link
-    :to='to'
+    :name='name'
     :params='params'
     :class='classes'
   >
@@ -11,11 +11,11 @@
 <script>
 export default {
   name: 'active-links',
-  props: ['to', 'params', 'search', 'hash', 'state', 'partial'],
+  props: ['name', 'params', 'search', 'hash', 'state', 'partial'],
   computed: {
     classes() {
       return this.$router.route.active(
-        this.to,
+        this.name,
         this.$curi.response,
         this.params,
         this.partial

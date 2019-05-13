@@ -1,7 +1,7 @@
 <template>
   <div class='user-topbar'>
     <div class='info'>
-      <curi-link to='Stream' :params="{ username: user.username }">
+      <curi-link name='Stream' :params="{ username: user.username }">
         {{user.username}}
       </curi-link>
       <p class='full'>Videos</p>
