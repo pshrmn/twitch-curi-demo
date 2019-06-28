@@ -9,16 +9,18 @@
 </template>
 
 <script>
+import { active } from '@curi/interactions';
+
 export default {
   name: 'active-links',
   props: ['name', 'params', 'search', 'hash', 'state', 'partial'],
   computed: {
     classes() {
-      return this.$router.route.active(
-        this.name,
+      const route = this.$router.route(this.name);
+      return active(
+        route,
         this.$curi.response,
-        this.params,
-        this.partial
+        { params: this.params, partial: this.partial }
       )
         ? 'active'
         : '';

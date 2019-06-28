@@ -2,12 +2,12 @@
   <nav>
     <ul>
       <li>
-        <active-link to='Browse'>
+        <active-link name='Browse' :partial='true'>
           Games
         </active-link>
       </li>
       <li>
-        <active-link to='Browse Popular'>
+        <active-link name='Browse Popular'>
           Streams
         </active-link>
       </li>

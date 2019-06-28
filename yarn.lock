@@ -2,44 +2,44 @@
 # yarn lockfile v1
 
 
-"@curi/helpers@^2.0.0-beta.4":
-  version "2.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@curi/helpers/-/helpers-2.0.0-beta.4.tgz#5ce88b7d0e3e0624371706f617d0d27e2ce99a23"
-  integrity sha512-Ev4l8GwHo6oDyxEhDPng2f8F0zMIoKs/kmVbKsNCMussd8Ey0b057dt3pTz0lsybJA2qoBd6uA2JT1T/RFEpPg==
+"@curi/helpers@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@curi/helpers/-/helpers-2.0.0.tgz#06894deb216dab728b92e20378003f8ab4feab64"
+  integrity sha512-+7Rgmamv1xkUvIdcSG3ORA81FDoyyM/oVT8j2JlXhxkuGJjH+oceZv2HyZiZVbK5RiCh8YwsC+oFqju0faExDA==
 
-"@curi/interactions@^2.0.0-beta.3":
-  version "2.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/@curi/interactions/-/interactions-2.0.0-beta.3.tgz#0c03cf512dc6f4f87055843f78ba5026e00f7bec"
-  integrity sha512-M1DoeDebrj4XTFUbczTPCWbWc7gq3YFQg79twailyPvtHjiHRaAKAilmQSzw9O928QdOk8vqx8wfSUqudDjv6w==
+"@curi/interactions@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@curi/interactions/-/interactions-2.0.0.tgz#db45cbb58a68eaff48c928ac1739a78369ecaf56"
+  integrity sha512-hp9GAd2b983r+vvhyuWK3+8J+4OZrICQZWInleJxcdO1QSMFSEiWUaFmEak/iDj8wQxeoan/C32cn8oQHBYRfg==
   dependencies:
-    "@curi/types" "^2.0.0-beta.10"
-    "@hickory/root" "2.0.0-beta.15"
+    "@curi/types" "^2.0.0"
+    "@hickory/root" "^2.0.0"
 
-"@curi/router@^2.0.0-beta.22":
-  version "2.0.0-beta.22"
-  resolved "https://registry.yarnpkg.com/@curi/router/-/router-2.0.0-beta.22.tgz#d1713a316926c8880c81562c61f115817c0ba569"
-  integrity sha512-p/OhJQMiqPHUZt09Hp3H2mKEZ3vqrEfDzx2lP+4kn0uPozOs0EkPos0gJKxjK3+mJ5yNnvbJLl5XeqhBS6zwig==
+"@curi/router@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@curi/router/-/router-2.0.1.tgz#348ed3067ab3e230e506c3818b73662e621685fc"
+  integrity sha512-cz2j8kaCs/iPgyf8CyizH1EVjAyRfqYZmzjQh+CJh5Ba5hNVGGmhfdriNIqb8f1n65LPyvfRLjobkb5PY0oxJQ==
   dependencies:
-    "@curi/interactions" "^2.0.0-beta.3"
-    "@curi/types" "^2.0.0-beta.10"
-    "@hickory/root" "2.0.0-beta.15"
+    "@curi/interactions" "^2.0.0"
+    "@curi/types" "^2.0.0"
+    "@hickory/root" "^2.0.0"
     path-to-regexp "^2.1.0"
 
-"@curi/types@^2.0.0-beta.10":
-  version "2.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/@curi/types/-/types-2.0.0-beta.10.tgz#a3c065e9c3f4aff1d1ea2cc3166ab01d995c23ce"
-  integrity sha512-WOQfQXlY665XOheGMJjx55I/sezL1wLwSjen4ShN5W8V1s1pedsbOBIhj+BQx1INIEyK/tzIR/LyiaFpN0EXYQ==
+"@curi/types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@curi/types/-/types-2.0.0.tgz#78eaff47cc1ad58731be93625b12663a61c8cdcb"
+  integrity sha512-dUqljMt5VdM2UV0ZLEqq6wLiW0m6+us/7hla7dmzq+Rk0gkIQ2CVAXIaspmC/SgJOCyJ6Gw1rSgJDzxgsnkWTQ==
   dependencies:
-    "@hickory/root" "2.0.0-beta.15"
+    "@hickory/root" "^2.0.0"
     path-to-regexp "^2.1.0"
 
-"@curi/vue@^2.0.0-alpha.10":
-  version "2.0.0-alpha.10"
-  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-2.0.0-alpha.10.tgz#3cefb24d9cc96ccf6bc947af2eb7efe62bd6f284"
-  integrity sha512-3KpYmwEdsKokG1ZiSnhceX+MnVe1ySe+iW+4Ii9HqdcyE9bSglQ5BzcW6TzUTzvnSy7WePI3bwTGtRxDkNMrGg==
+"@curi/vue@^2.0.0-alpha.11":
+  version "2.0.0-alpha.11"
+  resolved "https://registry.yarnpkg.com/@curi/vue/-/vue-2.0.0-alpha.11.tgz#4d0e6277910073a09c61a3ed6544572597e099d8"
+  integrity sha512-7tRQUeiHK/bexj4X8SN+Lw/TwvMkYHJIQqFtFkFOdaIIdzg8i51BHYDJq/bh7aVF4JlQf5/+wm9kTSAmDgY3qA==
   dependencies:
-    "@curi/types" "^2.0.0-beta.10"
-    "@hickory/root" "2.0.0-beta.15"
+    "@curi/types" "^2.0.0"
+    "@hickory/root" "^2.0.0"
 
 "@fortawesome/fontawesome-free-solid@^5.0.1":
   version "5.0.1"
@@ -53,30 +53,30 @@
   version "0.0.21"
   resolved "https://registry.yarnpkg.com/@fortawesome/vue-fontawesome/-/vue-fontawesome-0.0.21.tgz#8144b314f40830ff1eaa78806f0ae83f0041cd6e"
 
-"@hickory/browser@^2.0.0-beta.15":
-  version "2.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@hickory/browser/-/browser-2.0.0-beta.15.tgz#af21198cf34fecee48a33f276594f37533ff70f9"
-  integrity sha512-Z9pVtFUWyn6HRERTSI+Mv0XYQ0XqZLYA2YmIXz1arNBy+cPslPWaMdsaL9YOwPouEljc6EYtycnP4PzQxi7wxw==
+"@hickory/browser@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@hickory/browser/-/browser-2.0.1.tgz#b285b985d8884eca3374286bbcd7143a39ffa857"
+  integrity sha512-fsWgnCJCJE/n0Wazu6XFb8+S6OF98WYufpzBnBMU7xDllR2Lml9U5wLM2ltykdANpIZ04YQVot0JKzMtH9L12w==
   dependencies:
-    "@hickory/dom-utils" "^2.0.0-beta.15"
-    "@hickory/root" "^2.0.0-beta.15"
+    "@hickory/dom-utils" "^2.0.0"
+    "@hickory/root" "^2.0.0"
 
-"@hickory/dom-utils@^2.0.0-beta.15":
-  version "2.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@hickory/dom-utils/-/dom-utils-2.0.0-beta.15.tgz#d6e2c816af3e46473e8f41c22e6182cefb38bc4b"
-  integrity sha512-150eQWgWwXpvtiT/3btkDtRGXuE38TeMjwd9XBX0TtsSuW1IrPqS2eubuh6bygLjP0H3F+LDh9Wc/hmPHJnd5Q==
+"@hickory/dom-utils@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hickory/dom-utils/-/dom-utils-2.0.0.tgz#6de76aeda504c58ed9ec5235bd52a93c77c65b6d"
+  integrity sha512-X+o8Jo8zrH8wo5Ug3mXzFw9KxlPZKjne4MeQThmtJ76ltqVMEknI/nkQR9QCt4EoTm3glXuUk/tEDWaxO1lp8g==
 
-"@hickory/location-utils@^2.0.0-beta.15":
-  version "2.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-2.0.0-beta.15.tgz#88f481d21f11c8622e8e4f76c787f42fa6e5fc9b"
-  integrity sha512-S7+IQg0b2anbDO9vrUNscQPnc7rs3FURjlUvmML2ouz2p56szEON4gWn9xkGJTswjqgViQkaKIBotTVOVL16Kg==
+"@hickory/location-utils@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hickory/location-utils/-/location-utils-2.0.0.tgz#d0cee3514b2b50bb91a8dd2d38b0e08e3fc614a8"
+  integrity sha512-3cClPyr3v2RZk40vpyHKybNMHkqfxjvonadOfDruZW44pxFA+y+ih9th/oX8w9Zav1fYubBeqvbyQgIKP3T8xA==
 
-"@hickory/root@2.0.0-beta.15", "@hickory/root@^2.0.0-beta.15":
-  version "2.0.0-beta.15"
-  resolved "https://registry.yarnpkg.com/@hickory/root/-/root-2.0.0-beta.15.tgz#6786ff38a6f5d26bbf87f9f7ad1df73e07a8c6d3"
-  integrity sha512-gWSS44CaPZSeK94qSQmHMdlnoQrH1x5PTIQEMUb01RtpAfcyn3UJzScO/2+2lIjnwmPZ5hr5l5k5kVZDADbAjw==
+"@hickory/root@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@hickory/root/-/root-2.0.0.tgz#1189c9cbead66c17ab289e43d728280bf1f15930"
+  integrity sha512-w9N7Ub6kAMcbCenQXhugpdUJc8lRaZj22y1Kn1LKfFIF649VE/RsRqCN+XFWJmq8LceV5QuRcWixnC+n8hnO0g==
   dependencies:
-    "@hickory/location-utils" "^2.0.0-beta.15"
+    "@hickory/location-utils" "^2.0.0"
 
 "@types/strip-bom@^3.0.0":
   version "3.0.0"
